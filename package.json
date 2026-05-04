@@ -6,8 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "typegen": "next typegen",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "i18n:check": "i18n-check --source en --locales messages --unused src --format next-intl"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -18,6 +20,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@lingual/i18n-check": "^0.9.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
