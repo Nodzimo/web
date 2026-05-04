@@ -27,6 +27,8 @@ cmds = [
     'unzip -o /tmp/bun.zip -d /tmp',
     'cp /tmp/bun-linux-x64-baseline/bun /app/.bun/bin/bun',
     'chmod +x /app/.bun/bin/bun',
+    'echo "[Nixpacks] Node version:"',
+    'node -v || true',
     'echo "[Nixpacks] Bun version:"',
     '/app/.bun/bin/bun --version',
     'echo "[Nixpacks] Installing dependencies..."',
