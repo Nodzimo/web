@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
   typedRoutes: true,
-  allowedDevOrigins: ['172.16.0.1'],
+  allowedDevOrigins: ['172.16.0.1', '192.168.1.105'],
   devIndicators: {
     position: 'bottom-right',
   },
