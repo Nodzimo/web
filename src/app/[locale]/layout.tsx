@@ -23,7 +23,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export async function generateMetadata({
   params,
-}: LayoutProps<'/[locale]'>): Promise<Metadata> {
+}: Omit<LayoutProps<'/[locale]'>, 'children'>): Promise<Metadata> {
   const locale = await getLocaleFromParams(params)
   const t = await getTranslations({ locale, namespace: 'Metadata' })
 
@@ -42,7 +42,7 @@ export default async function LocaleLayout({
   params,
 }: LayoutProps<'/[locale]'>) {
   const locale = await setStaticLocaleFromParams(params)
-  const t = await getTranslations({ locale, namespace: 'LocaleLayout' })
+  const t = await getTranslations('LocaleLayout')
 
   return (
     <html

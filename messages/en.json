@@ -23,5 +23,10 @@
     "pangram": "The quick brown fox jumps over the lazy dog",
     "alphabetUppercase": "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
     "alphabetLowercase": "a b c d e f g h i j k l m n o p q r s t u v w x y z"
+  },
+  "NotFound": {
+    "title": "404 - Page not found",
+    "description": "The page you are looking for does not exist",
+    "returnHomeLink": "Return home"
   }
 }

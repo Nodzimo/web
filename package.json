@@ -8,7 +8,7 @@
     "demo": "next build && next start --port 3300",
     "build": "next build --debug",
     "start": "next start",
-    "start-cpu-prof": "next start --port 3500 --experimental-cpu-prof",
+    "start-cpu-prof": "next start --port 3400 --experimental-cpu-prof",
     "typegen-check": "next typegen && tsc --noEmit",
     "analyze": "next experimental-analyze",
     "analyze-output": "next experimental-analyze --output",
