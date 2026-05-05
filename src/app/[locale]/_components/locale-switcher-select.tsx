@@ -12,11 +12,7 @@ type Props = {
   label: string
 }
 
-export default function LocaleSwitcherSelect({
-  children,
-  defaultValue,
-  label,
-}: Props) {
+export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   const pathname = usePathname()

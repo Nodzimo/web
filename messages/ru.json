@@ -7,9 +7,10 @@
     "indexPage": "Главная страница",
     "testPage": "Тестовая страница"
   },
-
-  "LocaleLayout": {
-    "header": "Шапка",
+  "Header": {
+    "header": "Шапка"
+  },
+  "Footer": {
     "footer": "Подвал"
   },
   "IndexPage": {

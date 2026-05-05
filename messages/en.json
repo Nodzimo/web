@@ -7,8 +7,10 @@
     "indexPage": "Index page",
     "testPage": "Test page"
   },
-  "LocaleLayout": {
-    "header": "Header",
+  "Header": {
+    "header": "Header"
+  },
+  "Footer": {
     "footer": "Footer"
   },
   "IndexPage": {
