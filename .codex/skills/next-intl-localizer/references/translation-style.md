@@ -22,7 +22,7 @@ When English and Russian disagree, pause and mention the conflict unless the int
 - Avoid unnecessary pronouns.
 - Keep tone calm and clear unless the source intentionally has stronger character.
 
-### Simplified Chinese `zh-CN`
+### Chinese `zh`
 
 - Use Simplified Chinese.
 - Use Mainland-style UI wording.

@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, ru {Russian} en {English} other {Unknown}}"
+    "locale": "{locale, select, ru {Russian} en {English} ar {Arabic} ja {Japanese} zh {Chinese} other {Unknown}}"
   },
   "TestPage": {
     "pangram": "The quick brown fox jumps over the lazy dog",

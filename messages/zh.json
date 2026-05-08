@@ -1,0 +1,32 @@
+{
+  "Metadata": {
+    "title": "Sefo Nodzimo",
+    "description": "“被光拥抱”"
+  },
+  "Header": {
+    "header": "页眉"
+  },
+  "Footer": {
+    "footer": "页脚"
+  },
+  "IndexPage": {
+    "title": "你好，世界！",
+    "description": "一切都从很小的地方开始，\n看起来几乎什么都不是，\n只是一粒芽，一点微尘，一颗种子。\n\n但种子已经种下，\n不知不觉间，它就会长大。",
+    "testPageLink": "测试页面"
+  },
+  "LocaleSwitcher": {
+    "label": "更改语言",
+    "locale": "{locale, select, ru {俄语} en {英语} ar {阿拉伯语} ja {日语} zh {中文} other {未知}}"
+  },
+  "TestPage": {
+    "pangram": "快速的棕色狐狸跳过懒狗",
+    "alphabetUppercase": "一 二 三 四 五 六 七 八 九 十 百 千 万 山 水 火 木 金 土 日 月",
+    "alphabetLowercase": "的 一 是 不 了 在 人 有 和 国 中 大 为 上 个",
+    "indexPageLink": "首页"
+  },
+  "NotFound": {
+    "title": "404 - 页面未找到",
+    "description": "你要查找的页面不存在",
+    "returnHomeLink": "返回首页"
+  }
+}

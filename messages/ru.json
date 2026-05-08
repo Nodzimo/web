@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "Изменить язык",
-    "locale": "{locale, select, ru {Русский} en {Английский} other {Неизвестно}}"
+    "locale": "{locale, select, ru {Русский} en {Английский} ar {Арабский} ja {Японский} zh {Китайский} other {Неизвестно}}"
   },
   "TestPage": {
     "pangram": "Съешь же ещё этих мягких французских булок да выпей чаю",

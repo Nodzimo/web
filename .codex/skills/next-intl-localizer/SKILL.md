@@ -1,13 +1,13 @@
 ---
 name: next-intl-localizer
-description: Update, review, or validate this project's next-intl message files. Use when Codex is asked to add missing locale keys, translate changed UI messages, synchronize messages/*.json, preserve ICU placeholders, or apply the project's English-source/Russian-context translation workflow for Arabic, Japanese, and Simplified Chinese.
+description: Update, review, or validate this project's next-intl message files. Use when Codex is asked to add missing locale keys, translate changed UI messages, synchronize messages/*.json, preserve ICU placeholders, or apply the project's English-source/Russian-context translation workflow for Arabic, Japanese, and Chinese.
 ---
 
 # Next Intl Localizer
 
 ## Overview
 
-Use this skill for the local `next-intl` workflow in this repo. The project uses English as the canonical UI source, Russian as tone/context, and generated secondary locales for Arabic, Japanese, and Simplified Chinese.
+Use this skill for the local `next-intl` workflow in this repo. The project uses English as the canonical UI source, Russian as tone/context, and generated secondary locales for Arabic, Japanese, and Chinese.
 
 ## Locale Policy
 
@@ -17,7 +17,7 @@ Use this skill for the local `next-intl` workflow in this repo. The project uses
 - Use these secondary locale targets:
   - `ar`: Modern Standard Arabic for broad Arabic UI use.
   - `ja`: natural Japanese UI wording, concise and not overly literal.
-  - `zh-CN`: Simplified Chinese with Mainland-style UI wording.
+  - `zh`: Simplified Chinese with Mainland-style UI wording.
 - Do not invent dialect-specific Arabic, Traditional Chinese, or regional Japanese variants unless the user explicitly asks.
 
 ## Update Workflow
