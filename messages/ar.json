@@ -22,11 +22,20 @@
     "pangram": "نص حكيم له سر قاطع وذو شأن عظيم",
     "alphabetUppercase": "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
     "alphabetLowercase": "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
-    "indexPageLink": "الصفحة الرئيسية"
+    "indexPageLink": "الصفحة الرئيسية",
+    "throwErrorButton": "إظهار خطأ",
+    "testError": "خطأ اختباري"
   },
   "NotFound": {
     "title": "404 - الصفحة غير موجودة",
     "description": "الصفحة التي تبحث عنها غير موجودة",
     "returnHomeLink": "العودة إلى الرئيسية"
+  },
+  "ErrorPage": {
+    "somethingWentWrong": "حدث خطأ ما!",
+    "errorDigest": "رمز الخطأ: ",
+    "errorMessage": "رسالة الخطأ",
+    "errorStack": "مكدس الخطأ",
+    "tryAgain": "حاول مرة أخرى"
   }
 }

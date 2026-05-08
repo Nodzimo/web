@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { useStaticLocale } from '@/i18n/static-locale'
+import { ThrowErrorButton } from './_components'
 
 export default function TestPage({ params }: PageProps<'/[locale]/test'>) {
   useStaticLocale(params)
@@ -9,6 +10,10 @@ export default function TestPage({ params }: PageProps<'/[locale]/test'>) {
   return (
     <div className={'flex flex-col gap-10'}>
       <Link href={'/'}>{t('indexPageLink')}</Link>
+      <ThrowErrorButton
+        label={t('throwErrorButton')}
+        errorMessage={t('testError')}
+      />
       <p>{t('pangram')}</p>
       <p>{t('alphabetUppercase')}</p>
       <p>{t('alphabetLowercase')}</p>

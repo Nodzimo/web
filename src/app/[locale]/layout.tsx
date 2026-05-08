@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import {
   getLocaleFromParams,
@@ -29,6 +29,8 @@ export default async function LocaleLayout({
   params,
 }: LayoutProps<'/[locale]'>) {
   const locale = await setStaticLocaleFromParams(params)
+  const { ErrorPage } = await getMessages({ locale })
+  const clientMessages = { ErrorPage }
   const { region } = new Intl.Locale(locale)
   console.debug(`[SN] Locale: ${locale}, Region: ${region}`)
 
@@ -39,7 +41,7 @@ export default async function LocaleLayout({
       className={`${fontVariables} h-full bg-fuchsia-500 antialiased`}
     >
       <body className={'flex min-h-full flex-col bg-lime-500'}>
-        <Providers>
+        <Providers messages={clientMessages}>
           <Header />
           <Main>{children}</Main>
           <Footer />

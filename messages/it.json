@@ -22,11 +22,20 @@
     "pangram": "Pranzo d'acqua fa volti sghembi",
     "alphabetUppercase": "A B C D E F G H I L M N O P Q R S T U V Z À È É Ì Ò Ù",
     "alphabetLowercase": "a b c d e f g h i l m n o p q r s t u v z à è é ì ò ù",
-    "indexPageLink": "Pagina iniziale"
+    "indexPageLink": "Pagina iniziale",
+    "throwErrorButton": "Genera errore",
+    "testError": "Errore di test"
   },
   "NotFound": {
     "title": "404 - Pagina non trovata",
     "description": "La pagina che stai cercando non esiste",
     "returnHomeLink": "Torna alla home"
+  },
+  "ErrorPage": {
+    "somethingWentWrong": "Qualcosa è andato storto!",
+    "errorDigest": "Codice errore: ",
+    "errorMessage": "Messaggio di errore",
+    "errorStack": "Stack dell'errore",
+    "tryAgain": "Riprova"
   }
 }

@@ -1,8 +1,14 @@
-import { NextIntlClientProvider } from 'next-intl'
+import { type Messages, NextIntlClientProvider } from 'next-intl'
 import type { PropsWithChildren } from 'react'
 
-export function Providers({ children }: PropsWithChildren) {
+type Props = PropsWithChildren & {
+  messages: Pick<Messages, 'ErrorPage'>
+}
+
+export function Providers({ children, messages }: Props) {
   return (
-    <NextIntlClientProvider messages={null}>{children}</NextIntlClientProvider>
+    <NextIntlClientProvider messages={messages}>
+      {children}
+    </NextIntlClientProvider>
   )
 }

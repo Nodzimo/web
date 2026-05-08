@@ -22,11 +22,20 @@
     "pangram": "Portez ce vieux whisky au juge blond qui fume",
     "alphabetUppercase": "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z À Â Ç É È Ê Ë Î Ï Ô Ù Û Ü Ÿ",
     "alphabetLowercase": "a b c d e f g h i j k l m n o p q r s t u v w x y z à â ç é è ê ë î ï ô ù û ü ÿ",
-    "indexPageLink": "Page d'accueil"
+    "indexPageLink": "Page d'accueil",
+    "throwErrorButton": "Déclencher une erreur",
+    "testError": "Erreur de test"
   },
   "NotFound": {
     "title": "404 - Page introuvable",
     "description": "La page que vous recherchez n'existe pas",
     "returnHomeLink": "Retourner à l'accueil"
+  },
+  "ErrorPage": {
+    "somethingWentWrong": "Une erreur est survenue !",
+    "errorDigest": "Code d'erreur : ",
+    "errorMessage": "Message d'erreur",
+    "errorStack": "Pile d'erreur",
+    "tryAgain": "Réessayer"
   }
 }
