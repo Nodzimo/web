@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "Cambia lingua",
-    "locale": "{locale, select, en {Inglese} ru {Russo} be {Bielorusso} uk {Ucraino} de {Tedesco} fr {Francese} it {Italiano} es {Spagnolo} ar {Arabo} ja {Giapponese} zh {Cinese} other {Sconosciuto}}"
+    "locale": "{locale, select, en {Inglese} ru {Russo} be {Bielorusso} uk {Ucraino} de {Tedesco} fr {Francese} it {Italiano} es {Spagnolo} ar {Arabo} zh {Cinese} ja {Giapponese} other {Sconosciuto}}"
   },
   "TestPage": {
     "pangram": "Pranzo d'acqua fa volti sghembi",

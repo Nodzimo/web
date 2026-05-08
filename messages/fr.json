@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "Changer de langue",
-    "locale": "{locale, select, en {Anglais} ru {Russe} be {Biélorusse} uk {Ukrainien} de {Allemand} fr {Français} it {Italien} es {Espagnol} ar {Arabe} ja {Japonais} zh {Chinois} other {Inconnu}}"
+    "locale": "{locale, select, en {Anglais} ru {Russe} be {Biélorusse} uk {Ukrainien} de {Allemand} fr {Français} it {Italien} es {Espagnol} ar {Arabe} zh {Chinois} ja {Japonais} other {Inconnu}}"
   },
   "TestPage": {
     "pangram": "Portez ce vieux whisky au juge blond qui fume",

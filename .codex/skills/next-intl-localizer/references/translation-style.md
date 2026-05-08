@@ -71,7 +71,8 @@ When English and Russian disagree, pause and mention the conflict unless the int
 - Preserve newlines when they are part of the visible rhythm or layout.
 - Preserve Markdown, HTML-like rich-text tags, and escaped characters.
 - Keep punctuation natural for the target language, but do not break ICU syntax.
-- Do not translate `Nodzimo`, `Sefo`, route paths, code identifiers, package names, or config values.
+- Do not translate route paths, code identifiers, package names, or config values.
+- Keep `Sefo Nodzimo` unchanged in Latin-script locales. In `Metadata.title`, transliterate the pseudonym for non-Latin scripts when that locale already localizes visible names.
 
 ## Review Notes
 

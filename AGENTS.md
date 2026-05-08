@@ -24,6 +24,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Skills
 
 - For next-intl message translation, synchronization, or validation, use the project-local `next-intl-localizer` skill at `.codex/skills/next-intl-localizer`.
+- Keep supported locale order consistent across routing, selectors, and message select cases: `en`, `ru`, `be`, `uk`, `de`, `fr`, `it`, `es`, `ar`, `zh`, `ja`.
 
 ## App Router Structure
 

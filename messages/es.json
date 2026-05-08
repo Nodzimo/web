@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "Cambiar idioma",
-    "locale": "{locale, select, en {Inglés} ru {Ruso} be {Bielorruso} uk {Ucraniano} de {Alemán} fr {Francés} it {Italiano} es {Español} ar {Árabe} ja {Japonés} zh {Chino} other {Desconocido}}"
+    "locale": "{locale, select, en {Inglés} ru {Ruso} be {Bielorruso} uk {Ucraniano} de {Alemán} fr {Francés} it {Italiano} es {Español} ar {Árabe} zh {Chino} ja {Japonés} other {Desconocido}}"
   },
   "TestPage": {
     "pangram": "El veloz murciélago hindú comía feliz cardillo y kiwi",

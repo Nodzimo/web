@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "Sprache ändern",
-    "locale": "{locale, select, en {Englisch} ru {Russisch} be {Belarussisch} uk {Ukrainisch} de {Deutsch} fr {Französisch} it {Italienisch} es {Spanisch} ar {Arabisch} ja {Japanisch} zh {Chinesisch} other {Unbekannt}}"
+    "locale": "{locale, select, en {Englisch} ru {Russisch} be {Belarussisch} uk {Ukrainisch} de {Deutsch} fr {Französisch} it {Italienisch} es {Spanisch} ar {Arabisch} zh {Chinesisch} ja {Japanisch} other {Unbekannt}}"
   },
   "TestPage": {
     "pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern",

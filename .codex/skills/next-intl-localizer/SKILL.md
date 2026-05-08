@@ -20,8 +20,9 @@ Use this skill for the local `next-intl` workflow in this repo. The project uses
   - `be`, `uk`: nearby Slavic block.
   - `de`, `fr`, `it`, `es`: European block.
   - `ar`: Modern Standard Arabic for broad Arabic UI use.
-  - `ja`: natural Japanese UI wording, concise and not overly literal.
   - `zh`: Simplified Chinese with Mainland-style UI wording.
+  - `ja`: natural Japanese UI wording, concise and not overly literal.
+- Preserve this order everywhere users see or route through locales: `en`, `ru`, `be`, `uk`, `de`, `fr`, `it`, `es`, `ar`, `zh`, `ja`.
 - Do not invent dialect-specific Arabic, Traditional Chinese, regional Japanese variants, or alternate European regional variants unless the user explicitly asks.
 
 ## Update Workflow

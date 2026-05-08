@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "Sefo Nodzimo",
+    "title": "塞福·诺兹莫",
     "description": "“被光拥抱”"
   },
   "Header": {
@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "更改语言",
-    "locale": "{locale, select, en {英语} ru {俄语} be {白俄罗斯语} uk {乌克兰语} de {德语} fr {法语} it {意大利语} es {西班牙语} ar {阿拉伯语} ja {日语} zh {中文} other {未知}}"
+    "locale": "{locale, select, en {英语} ru {俄语} be {白俄罗斯语} uk {乌克兰语} de {德语} fr {法语} it {意大利语} es {西班牙语} ar {阿拉伯语} zh {中文} ja {日语} other {未知}}"
   },
   "TestPage": {
     "pangram": "快速的棕色狐狸跳过懒狗",

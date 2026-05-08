@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "Sefo Nodzimo",
+    "title": "セフォ・ノジモ",
     "description": "「光に包まれて」"
   },
   "Header": {
@@ -16,7 +16,7 @@
   },
   "LocaleSwitcher": {
     "label": "言語を変更",
-    "locale": "{locale, select, en {英語} ru {ロシア語} be {ベラルーシ語} uk {ウクライナ語} de {ドイツ語} fr {フランス語} it {イタリア語} es {スペイン語} ar {アラビア語} ja {日本語} zh {中国語} other {不明}}"
+    "locale": "{locale, select, en {英語} ru {ロシア語} be {ベラルーシ語} uk {ウクライナ語} de {ドイツ語} fr {フランス語} it {イタリア語} es {スペイン語} ar {アラビア語} zh {中国語} ja {日本語} other {不明}}"
   },
   "TestPage": {
     "pangram": "いろはにほへと ちりぬるを",
