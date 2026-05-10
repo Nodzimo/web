@@ -6,4 +6,4 @@ import { routing } from './routing'
 // ToDo: Удалить исключение:
 // noinspection JSUnusedGlobalSymbols
 export const { Link, redirect, usePathname, useRouter, getPathname } =
-  createNavigation(routing)
+	createNavigation(routing)

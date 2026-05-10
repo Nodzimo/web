@@ -1,32 +1,32 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
-  "linter": {
-    "rules": {
-      "suspicious": {
-        "noUnknownAtRules": "off"
-      },
-      "nursery": {
-        "useSortedClasses": { "level": "error", "fix": "safe" }
-      }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
-    }
-  },
-  "javascript": {
-    "formatter": {
-      "semicolons": "asNeeded",
-      "quoteStyle": "single",
-      "jsxQuoteStyle": "single",
-      "arrowParentheses": "asNeeded"
-    }
-  },
-  "css": { "parser": { "tailwindDirectives": true } },
-  "json": { "parser": { "allowComments": false } }
+	"$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"linter": {
+		"rules": {
+			"suspicious": {
+				"noUnknownAtRules": "off"
+			},
+			"nursery": {
+				"useSortedClasses": { "level": "error", "fix": "safe" }
+			}
+		},
+		"domains": {
+			"next": "recommended",
+			"react": "recommended"
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"semicolons": "asNeeded",
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "single",
+			"arrowParentheses": "asNeeded"
+		}
+	},
+	"css": { "parser": { "tailwindDirectives": true } },
+	"json": { "parser": { "allowComments": false } }
 }

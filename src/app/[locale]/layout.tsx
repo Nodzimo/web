@@ -6,47 +6,47 @@ import { Footer, Header, Main, Providers } from './_components'
 import { getMetadataTranslations } from './_lib'
 
 export async function generateMetadata({
-  params,
+	params,
 }: LayoutProps<'/[locale]'>): Promise<Metadata> {
-  const { locale, t } = await getMetadataTranslations(params, 'Metadata')
-  const title = t('title')
+	const { locale, t } = await getMetadataTranslations(params, 'Metadata')
+	const title = t('title')
 
-  return {
-    title: {
-      default: title,
-      template: `%s | ${title} | ${locale.toUpperCase()}`,
-    },
-    description: t('description'),
-  }
+	return {
+		title: {
+			default: title,
+			template: `%s | ${title} | ${locale.toUpperCase()}`,
+		},
+		description: t('description'),
+	}
 }
 
 export function generateStaticParams() {
-  return routing.locales.map(locale => ({ locale }))
+	return routing.locales.map(locale => ({ locale }))
 }
 
 export default async function LocaleLayout({
-  children,
-  params,
+	children,
+	params,
 }: LayoutProps<'/[locale]'>) {
-  const locale = await setStaticLocaleFromParams(params)
-  const { ErrorPage } = await getMessages({ locale })
-  const clientMessages = { ErrorPage }
-  const { region } = new Intl.Locale(locale)
-  console.debug(`[SN] Locale: ${locale}, Region: ${region}`)
+	const locale = await setStaticLocaleFromParams(params)
+	const { ErrorPage } = await getMessages({ locale })
+	const clientMessages = { ErrorPage }
+	const { region } = new Intl.Locale(locale)
+	console.debug(`[SN] Locale: ${locale}, Region: ${region}`)
 
-  return (
-    <html
-      lang={locale}
-      dir={locale === 'ar' ? 'rtl' : 'ltr'}
-      className={`${fontVariables} h-full bg-fuchsia-500 antialiased`}
-    >
-      <body className={'flex min-h-full flex-col bg-lime-500'}>
-        <Providers messages={clientMessages}>
-          <Header />
-          <Main>{children}</Main>
-          <Footer />
-        </Providers>
-      </body>
-    </html>
-  )
+	return (
+		<html
+			lang={locale}
+			dir={locale === 'ar' ? 'rtl' : 'ltr'}
+			className={`${fontVariables} h-full bg-fuchsia-500 antialiased`}
+		>
+			<body className={'flex min-h-full flex-col bg-lime-500'}>
+				<Providers messages={clientMessages}>
+					<Header />
+					<Main>{children}</Main>
+					<Footer />
+				</Providers>
+			</body>
+		</html>
+	)
 }

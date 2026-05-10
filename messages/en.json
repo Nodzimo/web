@@ -1,42 +1,42 @@
 {
-  "Metadata": {
-    "title": "Sefo Nodzimo",
-    "description": "“Embraced by Light”"
-  },
-  "Header": {
-    "header": "Header"
-  },
-  "Footer": {
-    "footer": "Footer"
-  },
-  "IndexPage": {
-    "title": "Hello, World!",
-    "description": "It begins very small,\nSeems like nothing much at all,\nJust a germ, just a speck, just a grain.\n\nBut the seed has been sown,\nAnd before you know it's grown.",
-    "testPageLink": "Test page"
-  },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, en {English} ru {Russian} be {Belarusian} uk {Ukrainian} de {German} fr {French} it {Italian} es {Spanish} ar {Arabic} zh {Chinese} ja {Japanese} other {Unknown}}"
-  },
-  "TestPage": {
-    "title": "Test",
-    "pangram": "The quick brown fox jumps over the lazy dog",
-    "alphabetUppercase": "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
-    "alphabetLowercase": "a b c d e f g h i j k l m n o p q r s t u v w x y z",
-    "indexPageLink": "Index page",
-    "throwErrorButton": "Throw error",
-    "testError": "Test error"
-  },
-  "NotFound": {
-    "title": "404 - Page not found",
-    "description": "The page you are looking for does not exist",
-    "returnHomeLink": "Return home"
-  },
-  "ErrorPage": {
-    "somethingWentWrong": "Something went wrong!",
-    "errorDigest": "Error code: ",
-    "errorMessage": "Error message",
-    "errorStack": "Error stack",
-    "tryAgain": "Try again"
-  }
+	"Metadata": {
+		"title": "Sefo Nodzimo",
+		"description": "“Embraced by Light”"
+	},
+	"Header": {
+		"header": "Header"
+	},
+	"Footer": {
+		"footer": "Footer"
+	},
+	"IndexPage": {
+		"title": "Hello, World!",
+		"description": "It begins very small,\nSeems like nothing much at all,\nJust a germ, just a speck, just a grain.\n\nBut the seed has been sown,\nAnd before you know it's grown.",
+		"testPageLink": "Test page"
+	},
+	"LocaleSwitcher": {
+		"label": "Change language",
+		"locale": "{locale, select, en {English} ru {Russian} be {Belarusian} uk {Ukrainian} de {German} fr {French} it {Italian} es {Spanish} ar {Arabic} zh {Chinese} ja {Japanese} other {Unknown}}"
+	},
+	"TestPage": {
+		"title": "Test",
+		"pangram": "The quick brown fox jumps over the lazy dog",
+		"alphabetUppercase": "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+		"alphabetLowercase": "a b c d e f g h i j k l m n o p q r s t u v w x y z",
+		"indexPageLink": "Index page",
+		"throwErrorButton": "Throw error",
+		"testError": "Test error"
+	},
+	"NotFound": {
+		"title": "404 - Page not found",
+		"description": "The page you are looking for does not exist",
+		"returnHomeLink": "Return home"
+	},
+	"ErrorPage": {
+		"somethingWentWrong": "Something went wrong!",
+		"errorDigest": "Error code: ",
+		"errorMessage": "Error message",
+		"errorStack": "Error stack",
+		"tryAgain": "Try again"
+	}
 }

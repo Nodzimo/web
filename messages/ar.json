@@ -1,42 +1,42 @@
 {
-  "Metadata": {
-    "title": "سيفو نودزيمو",
-    "description": "«محاط بالنور»"
-  },
-  "Header": {
-    "header": "الترويسة"
-  },
-  "Footer": {
-    "footer": "التذييل"
-  },
-  "IndexPage": {
-    "title": "مرحبًا بالعالم!",
-    "description": "يبدأ الأمر صغيرًا جدًا،\nكأنه لا شيء تقريبًا،\nمجرد بذرة، مجرد ذرة، مجرد حبة.\n\nلكن البذرة قد زُرعت،\nوقبل أن تشعر، تراها قد كبرت.",
-    "testPageLink": "صفحة الاختبار"
-  },
-  "LocaleSwitcher": {
-    "label": "تغيير اللغة",
-    "locale": "{locale, select, en {الإنجليزية} ru {الروسية} be {البيلاروسية} uk {الأوكرانية} de {الألمانية} fr {الفرنسية} it {الإيطالية} es {الإسبانية} ar {العربية} zh {الصينية} ja {اليابانية} other {غير معروف}}"
-  },
-  "TestPage": {
-    "title": "اختبار",
-    "pangram": "نص حكيم له سر قاطع وذو شأن عظيم",
-    "alphabetUppercase": "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
-    "alphabetLowercase": "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
-    "indexPageLink": "الصفحة الرئيسية",
-    "throwErrorButton": "إظهار خطأ",
-    "testError": "خطأ اختباري"
-  },
-  "NotFound": {
-    "title": "404 - الصفحة غير موجودة",
-    "description": "الصفحة التي تبحث عنها غير موجودة",
-    "returnHomeLink": "العودة إلى الرئيسية"
-  },
-  "ErrorPage": {
-    "somethingWentWrong": "حدث خطأ ما!",
-    "errorDigest": "رمز الخطأ: ",
-    "errorMessage": "رسالة الخطأ",
-    "errorStack": "مكدس الخطأ",
-    "tryAgain": "حاول مرة أخرى"
-  }
+	"Metadata": {
+		"title": "سيفو نودزيمو",
+		"description": "«محاط بالنور»"
+	},
+	"Header": {
+		"header": "الترويسة"
+	},
+	"Footer": {
+		"footer": "التذييل"
+	},
+	"IndexPage": {
+		"title": "مرحبًا بالعالم!",
+		"description": "يبدأ الأمر صغيرًا جدًا،\nكأنه لا شيء تقريبًا،\nمجرد بذرة، مجرد ذرة، مجرد حبة.\n\nلكن البذرة قد زُرعت،\nوقبل أن تشعر، تراها قد كبرت.",
+		"testPageLink": "صفحة الاختبار"
+	},
+	"LocaleSwitcher": {
+		"label": "تغيير اللغة",
+		"locale": "{locale, select, en {الإنجليزية} ru {الروسية} be {البيلاروسية} uk {الأوكرانية} de {الألمانية} fr {الفرنسية} it {الإيطالية} es {الإسبانية} ar {العربية} zh {الصينية} ja {اليابانية} other {غير معروف}}"
+	},
+	"TestPage": {
+		"title": "اختبار",
+		"pangram": "نص حكيم له سر قاطع وذو شأن عظيم",
+		"alphabetUppercase": "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
+		"alphabetLowercase": "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
+		"indexPageLink": "الصفحة الرئيسية",
+		"throwErrorButton": "إظهار خطأ",
+		"testError": "خطأ اختباري"
+	},
+	"NotFound": {
+		"title": "404 - الصفحة غير موجودة",
+		"description": "الصفحة التي تبحث عنها غير موجودة",
+		"returnHomeLink": "العودة إلى الرئيسية"
+	},
+	"ErrorPage": {
+		"somethingWentWrong": "حدث خطأ ما!",
+		"errorDigest": "رمز الخطأ: ",
+		"errorMessage": "رسالة الخطأ",
+		"errorStack": "مكدس الخطأ",
+		"tryAgain": "حاول مرة أخرى"
+	}
 }

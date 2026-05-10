@@ -1,68 +1,68 @@
 {
-  "name": "nodzimo-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --port 3100",
-    "dev:webpack": "next dev --port 3150 --webpack",
-    "dev:https": "bun run dev --port 3200 --experimental-https",
-    "build": "next build --debug",
-    "start": "next start",
-    "start:demo": "bun run build && bun run start --port 3300",
-    "start:cpu-prof": "bun run start --port 3400 --experimental-cpu-prof",
-    "type:gen": "next typegen",
-    "type:check": "bun run type:gen && tsc --noEmit",
-    "analyze": "next experimental-analyze",
-    "analyze:output": "bun run analyze --output",
-    "info": "next info",
-    "check:lint": "biome check",
-    "check:format": "biome format --write",
-    "check:fix": "bun run check:lint --write",
-    "check:fix-unsafe": "bun run check:fix --unsafe",
-    "i18n:check": "i18n-check --source en --locales messages --format next-intl",
-    "i18n:unused": "bun run i18n:check --unused src",
-    "deps:install": "bun install",
-    "deps:outdated": "bun outdated",
-    "ui:link": "bun link nodzimo-ui",
-    "ui:add": "bun i ../nodzimo-ui/nodzimo-ui.tgz",
-    "ui:remove": "bun remove nodzimo-ui",
-    "ui:reinstall": "bun run ui:remove && bun run ui:add",
-    "git:pull": "git pull",
-    "clean:next": "bun scripts/clean.ts next",
-    "clean:modules": "bun scripts/clean.ts modules",
-    "clean:all": "bun scripts/clean.ts next modules",
-    "check": "bun run type:check && bun run check:lint && bun run i18n:check",
-    "verify": "bun run check && bun run build"
-  },
-  "engines": {
-    "node": "25.x",
-    "bun": "1.3.13"
-  },
-  "dependencies": {
-    "clsx": "2.1.1",
-    "next": "16.2.4",
-    "next-intl": "4.11.0",
-    "nodzimo-ui": "../nodzimo-ui/nodzimo-ui.tgz",
-    "react": "19.2.5",
-    "react-dom": "19.2.5"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.4.14",
-    "@lingual/i18n-check": "0.9.5",
-    "@tailwindcss/postcss": "4.2.4",
-    "@types/node": "25.6.0",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "babel-plugin-react-compiler": "1.0.0",
-    "tailwindcss": "4.2.4",
-    "typescript": "6.0.3"
-  },
-  "ignoreScripts": [
-    "sharp",
-    "unrs-resolver"
-  ],
-  "trustedDependencies": [
-    "sharp",
-    "unrs-resolver"
-  ]
+	"name": "nodzimo-web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --port 3100",
+		"dev:webpack": "next dev --port 3150 --webpack",
+		"dev:https": "bun run dev --port 3200 --experimental-https",
+		"build": "next build --debug",
+		"start": "next start",
+		"start:demo": "bun run build && bun run start --port 3300",
+		"start:cpu-prof": "bun run start --port 3400 --experimental-cpu-prof",
+		"type:gen": "next typegen",
+		"type:check": "bun run type:gen && tsc --noEmit",
+		"analyze": "next experimental-analyze",
+		"analyze:output": "bun run analyze --output",
+		"info": "next info",
+		"check:lint": "biome check",
+		"check:format": "biome format --write",
+		"check:fix": "bun run check:lint --write",
+		"check:fix-unsafe": "bun run check:fix --unsafe",
+		"i18n:check": "i18n-check --source en --locales messages --format next-intl",
+		"i18n:unused": "bun run i18n:check --unused src",
+		"deps:install": "bun install",
+		"deps:outdated": "bun outdated",
+		"ui:link": "bun link nodzimo-ui",
+		"ui:add": "bun i ../nodzimo-ui/nodzimo-ui.tgz",
+		"ui:remove": "bun remove nodzimo-ui",
+		"ui:reinstall": "bun run ui:remove && bun run ui:add",
+		"git:pull": "git pull",
+		"clean:next": "bun scripts/clean.ts next",
+		"clean:modules": "bun scripts/clean.ts modules",
+		"clean:all": "bun scripts/clean.ts next modules",
+		"check": "bun run type:check && bun run check:lint && bun run i18n:check",
+		"verify": "bun run check && bun run build"
+	},
+	"engines": {
+		"node": "25.x",
+		"bun": "1.3.13"
+	},
+	"dependencies": {
+		"clsx": "2.1.1",
+		"next": "16.2.4",
+		"next-intl": "4.11.0",
+		"nodzimo-ui": "../nodzimo-ui/nodzimo-ui.tgz",
+		"react": "19.2.5",
+		"react-dom": "19.2.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.14",
+		"@lingual/i18n-check": "0.9.5",
+		"@tailwindcss/postcss": "4.2.4",
+		"@types/node": "25.6.0",
+		"@types/react": "19.2.14",
+		"@types/react-dom": "19.2.3",
+		"babel-plugin-react-compiler": "1.0.0",
+		"tailwindcss": "4.2.4",
+		"typescript": "6.0.3"
+	},
+	"ignoreScripts": [
+		"sharp",
+		"unrs-resolver"
+	],
+	"trustedDependencies": [
+		"sharp",
+		"unrs-resolver"
+	]
 }

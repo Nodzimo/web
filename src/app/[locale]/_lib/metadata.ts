@@ -7,15 +7,15 @@ type LocaleParams = { locale: string }
 type IntlNamespace = NamespaceKeys<Messages, NestedKeyOf<Messages>>
 
 export async function getMetadataTranslations<
-  Params extends LocaleParams,
-  Namespace extends IntlNamespace,
+	Params extends LocaleParams,
+	Namespace extends IntlNamespace,
 >(params: Promise<Params>, namespace: Namespace) {
-  const [locale, resolvedParams] = await Promise.all([
-    getLocaleFromParams(params),
-    params,
-  ])
+	const [locale, resolvedParams] = await Promise.all([
+		getLocaleFromParams(params),
+		params,
+	])
 
-  const t = await getTranslations({ locale, namespace })
+	const t = await getTranslations({ locale, namespace })
 
-  return { locale, params: resolvedParams, t }
+	return { locale, params: resolvedParams, t }
 }

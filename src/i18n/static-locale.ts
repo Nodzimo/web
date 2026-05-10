@@ -7,37 +7,37 @@ import { routing } from './routing'
 type LocaleParams = Promise<{ locale: string }>
 
 function assertLocale(locale: string): asserts locale is Locale {
-  if (!hasLocale(routing.locales, locale)) {
-    notFound()
-  }
+	if (!hasLocale(routing.locales, locale)) {
+		notFound()
+	}
 }
 
 export function useStaticLocale(params: LocaleParams): Locale {
-  const { locale } = use(params)
+	const { locale } = use(params)
 
-  assertLocale(locale)
+	assertLocale(locale)
 
-  setRequestLocale(locale)
+	setRequestLocale(locale)
 
-  return locale
+	return locale
 }
 
 export async function getLocaleFromParams(
-  params: LocaleParams,
+	params: LocaleParams,
 ): Promise<Locale> {
-  const { locale } = await params
+	const { locale } = await params
 
-  assertLocale(locale)
+	assertLocale(locale)
 
-  return locale
+	return locale
 }
 
 export async function setStaticLocaleFromParams(
-  params: LocaleParams,
+	params: LocaleParams,
 ): Promise<Locale> {
-  const locale = await getLocaleFromParams(params)
+	const locale = await getLocaleFromParams(params)
 
-  setRequestLocale(locale)
+	setRequestLocale(locale)
 
-  return locale
+	return locale
 }

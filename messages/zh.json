@@ -1,42 +1,42 @@
 {
-  "Metadata": {
-    "title": "塞福·诺兹莫",
-    "description": "“被光拥抱”"
-  },
-  "Header": {
-    "header": "页眉"
-  },
-  "Footer": {
-    "footer": "页脚"
-  },
-  "IndexPage": {
-    "title": "你好，世界！",
-    "description": "一切都从很小的地方开始，\n看起来几乎什么都不是，\n只是一粒芽，一点微尘，一颗种子。\n\n但种子已经种下，\n不知不觉间，它就会长大。",
-    "testPageLink": "测试页面"
-  },
-  "LocaleSwitcher": {
-    "label": "更改语言",
-    "locale": "{locale, select, en {英语} ru {俄语} be {白俄罗斯语} uk {乌克兰语} de {德语} fr {法语} it {意大利语} es {西班牙语} ar {阿拉伯语} zh {中文} ja {日语} other {未知}}"
-  },
-  "TestPage": {
-    "title": "测试",
-    "pangram": "快速的棕色狐狸跳过懒狗",
-    "alphabetUppercase": "一 二 三 四 五 六 七 八 九 十 百 千 万 山 水 火 木 金 土 日 月",
-    "alphabetLowercase": "的 一 是 不 了 在 人 有 和 国 中 大 为 上 个",
-    "indexPageLink": "首页",
-    "throwErrorButton": "抛出错误",
-    "testError": "测试错误"
-  },
-  "NotFound": {
-    "title": "404 - 页面未找到",
-    "description": "你要查找的页面不存在",
-    "returnHomeLink": "返回首页"
-  },
-  "ErrorPage": {
-    "somethingWentWrong": "出错了！",
-    "errorDigest": "错误代码：",
-    "errorMessage": "错误消息",
-    "errorStack": "错误堆栈",
-    "tryAgain": "重试"
-  }
+	"Metadata": {
+		"title": "塞福·诺兹莫",
+		"description": "“被光拥抱”"
+	},
+	"Header": {
+		"header": "页眉"
+	},
+	"Footer": {
+		"footer": "页脚"
+	},
+	"IndexPage": {
+		"title": "你好，世界！",
+		"description": "一切都从很小的地方开始，\n看起来几乎什么都不是，\n只是一粒芽，一点微尘，一颗种子。\n\n但种子已经种下，\n不知不觉间，它就会长大。",
+		"testPageLink": "测试页面"
+	},
+	"LocaleSwitcher": {
+		"label": "更改语言",
+		"locale": "{locale, select, en {英语} ru {俄语} be {白俄罗斯语} uk {乌克兰语} de {德语} fr {法语} it {意大利语} es {西班牙语} ar {阿拉伯语} zh {中文} ja {日语} other {未知}}"
+	},
+	"TestPage": {
+		"title": "测试",
+		"pangram": "快速的棕色狐狸跳过懒狗",
+		"alphabetUppercase": "一 二 三 四 五 六 七 八 九 十 百 千 万 山 水 火 木 金 土 日 月",
+		"alphabetLowercase": "的 一 是 不 了 在 人 有 和 国 中 大 为 上 个",
+		"indexPageLink": "首页",
+		"throwErrorButton": "抛出错误",
+		"testError": "测试错误"
+	},
+	"NotFound": {
+		"title": "404 - 页面未找到",
+		"description": "你要查找的页面不存在",
+		"returnHomeLink": "返回首页"
+	},
+	"ErrorPage": {
+		"somethingWentWrong": "出错了！",
+		"errorDigest": "错误代码：",
+		"errorMessage": "错误消息",
+		"errorStack": "错误堆栈",
+		"tryAgain": "重试"
+	}
 }
