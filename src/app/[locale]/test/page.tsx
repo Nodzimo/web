@@ -26,8 +26,8 @@ export default function TestPage({ params }: PageProps<'/[locale]/test'>) {
 			<Card>Web C</Card>
 			<Link href={'/'}>{t('indexPageLink')}</Link>
 			<ThrowErrorButton
-				label={t('throwErrorButton')}
 				errorMessage={t('testError')}
+				label={t('throwErrorButton')}
 			/>
 			<a href={'/sitemap.xml'}>Sitemap.xml</a>
 			<a href={'/robots.txt'}>Robots.txt</a>

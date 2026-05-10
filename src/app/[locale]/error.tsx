@@ -43,11 +43,11 @@ export default function ErrorPage({ error, unstable_retry }: Props) {
 				</details>
 			)}
 			<button
-				type={'button'}
 				onClick={
 					// Attempt to recover by re-fetching and re-rendering the segment
 					() => unstable_retry()
 				}
+				type={'button'}
 			>
 				{t('tryAgain')}
 			</button>

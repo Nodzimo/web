@@ -15,7 +15,7 @@ type Props = {
 export default function GlobalError({ error, unstable_retry }: Props) {
 	return (
 		// global-error must include html and body tags
-		<html lang={'en'} className={`${fontVariables} h-full`}>
+		<html className={`${fontVariables} h-full`} lang={'en'}>
 			<head>
 				<title>Error | Nodzimo</title>
 			</head>
@@ -28,9 +28,9 @@ export default function GlobalError({ error, unstable_retry }: Props) {
 				<main className={'flex flex-col gap-2 text-white'}>
 					<h2>Something went wrong!</h2>
 					<button
-						type={'button'}
 						className={'rounded bg-white py-1 text-black'}
 						onClick={() => unstable_retry()}
+						type={'button'}
 					>
 						Try again
 					</button>

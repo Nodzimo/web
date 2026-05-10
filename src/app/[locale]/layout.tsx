@@ -36,9 +36,9 @@ export default async function LocaleLayout({
 
 	return (
 		<html
-			lang={locale}
-			dir={locale === 'ar' ? 'rtl' : 'ltr'}
 			className={`${fontVariables} h-full bg-fuchsia-500 antialiased`}
+			dir={locale === 'ar' ? 'rtl' : 'ltr'}
+			lang={locale}
 		>
 			<body className={'flex min-h-full flex-col bg-lime-500'}>
 				<Providers messages={clientMessages}>

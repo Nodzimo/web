@@ -15,7 +15,7 @@ export function ThrowErrorButton({ label, errorMessage }: Props) {
 	}
 
 	return (
-		<button type={'button'} onClick={() => setShouldThrowError(true)}>
+		<button onClick={() => setShouldThrowError(true)} type={'button'}>
 			{label}
 		</button>
 	)
