@@ -18,16 +18,24 @@ the relevant guide in `node_modules/next/dist/docs/` before writing any code. He
 - `src/i18n/index.ts` is the public i18n barrel. App code may import navigation, routing, and static-locale helpers from
   `@/i18n`; keep `request.ts` as an internal config entry and do not re-export it from the barrel.
 
-## Local UI Kit Consumption
+## UI Kit Consumption
 
-- `nodzimo-ui` is developed as a separate sibling project, not as part of a monorepo.
-- Treat the sibling UI kit as its own project with its own `AGENTS.md`. Keep package-internal build, source layout,
-  export-map, React Compiler, and core/client boundary rules documented there; keep only Next-consumer integration rules
-  in this file.
-- Keep this project on Turbopack for normal dev/build. Do not switch the default workflow to webpack just to consume the
-  local UI kit.
-- Avoid `bun link nodzimo-ui` for Next/Turbopack. Linked/junction packages can fail Turbopack resolution even when Node,
-  Bun, and the IDE resolve them correctly. Related upstream issues:
+- `@sefo/nodzimo-ui` is published to npm and consumed from the registry for the normal app baseline and production
+  deploys.
+- Keep `@sefo/nodzimo-ui` in `dependencies`, not `devDependencies`, because app code imports its runtime components and
+  compiled stylesheet.
+- Use `"@sefo/nodzimo-ui": "latest"` when this app should always target the current npm `latest` dist-tag, including
+  major releases. Remember that `bun.lock` still pins the resolved version; run `bun update @sefo/nodzimo-ui --latest`
+  or `bun add @sefo/nodzimo-ui@latest` when refreshing the installed package.
+- Local UI-kit development still uses the sibling `../nodzimo-ui` project when testing unpublished changes. Build and
+  pack the UI kit there, then install the generated tarball here through the existing app scripts.
+- Preferred local unpublished-change workflow: run `bun run lib:pack` in `../nodzimo-ui`, then run
+  `bun run ui:reinstall`
+  in this project. This temporarily changes the installed package source to the generated local `.tgz`; switch back to
+  npm with `bun add @sefo/nodzimo-ui@latest` or `bun update @sefo/nodzimo-ui --latest` before treating the app as
+  production-ready.
+- Avoid `bun link @sefo/nodzimo-ui` for Next/Turbopack. Linked/junction packages can fail Turbopack resolution even when
+  Node, Bun, and the IDE resolve them correctly. Related upstream issues:
     - https://github.com/vercel/next.js/issues/85057
     - https://github.com/vercel/next.js/issues/77562
     - https://github.com/vercel/next.js/issues/65125
@@ -38,27 +46,19 @@ the relevant guide in `node_modules/next/dist/docs/` before writing any code. He
   `package.json` and dependency install. In this project, setting `turbopack.root` to the sibling parent broke
   Tailwind/PostCSS dependency resolution.
 - Avoid `file:../nodzimo-ui` as a folder dependency with Bun on Windows. Bun can try to copy the whole UI kit working
-  directory, including `.git`, and fail with `EPERM`.
-- Preferred local workflow for now: build and pack `nodzimo-ui`, then consume the generated `.tgz` through a `file:`
-  dependency.
-- Current dependency shape is a local tarball dependency: `"nodzimo-ui": "../nodzimo-ui/nodzimo-ui.tgz"`.
-- When updating the UI kit locally, run `bun run lib:pack` in `../nodzimo-ui`, then reinstall it here with
-  `bun run ui:reinstall` before testing this app.
-- Do not add `transpilePackages: ['nodzimo-ui']` by default. It did not fix the `bun link`/Turbopack issue, and the
-  packed UI kit works as a normal built dependency without it.
-- Add `transpilePackages` only for a reproduced package-transpilation problem, such as importing uncompiled source from
-  a package. If added, document the exact error it fixes and verify that removing it still fails.
+  directory, including `.git`, and fail with `EPERM`. Prefer the packed `.tgz` file for local UI-kit testing.
+- Keep this project on Turbopack for normal dev/build. Do not switch the default workflow to webpack for the UI kit.
+- Do not add `transpilePackages: ['@sefo/nodzimo-ui']` by default. Add it only for a reproduced package-transpilation
+  problem, document the exact error it fixes, and verify that removing it still fails.
 - Keep `reactCompiler: true` enabled in this app; the UI kit also uses React Compiler for its client entry.
 - Import UI kit exports only from public entrypoints:
-    - `nodzimo-ui` for RSC-safe/core exports.
-    - `nodzimo-ui/client` for client-boundary exports.
-- Do not import from `nodzimo-ui/src`, `nodzimo-ui/dist`, or other deep internal paths.
-- If UI kit imports fail, first verify the installed package in `node_modules/nodzimo-ui` contains `dist/nodzimo-ui.js`,
-  `dist/client.js`, generated declarations under `dist/src`, and package `exports` entries for `"."` and `"./client"`.
-- If a component works in a plain Vite consumer but fails in this Next app, check the packed output and Next package
-  installation before changing app architecture.
-- The tarball workflow is a local development workaround, not a publishing requirement. Revisit it when the UI kit is
-  published to a registry.
+    - `@sefo/nodzimo-ui` for RSC-safe/core exports.
+    - `@sefo/nodzimo-ui/client` for client-boundary exports.
+    - `@sefo/nodzimo-ui/styles.css` for the compiled global stylesheet.
+- Do not import from `@sefo/nodzimo-ui/src`, `@sefo/nodzimo-ui/dist`, or other deep internal paths.
+- If UI kit imports fail, first verify the installed package in `node_modules/@sefo/nodzimo-ui` contains the expected
+  built files and package `exports` entries for `"."`, `"./client"`, and `"./styles.css"` before changing app
+  architecture.
 
 ## Collaboration
 
@@ -121,7 +121,7 @@ the relevant guide in `node_modules/next/dist/docs/` before writing any code. He
 
 - Keep `<html>` and `<body>` in the route layout. They are part of the Next root layout contract.
 - The top-level `src/app/layout.tsx` exists for the root `not-found.tsx` fallback and should stay minimal: import
-  `./globals.css` and pass through `children`.
+  `@sefo/nodzimo-ui/styles.css`, then `./globals.css`, and pass through `children`.
 - It is fine to extract providers, header/footer/main shell components, and font setup out of the layout.
 - Keep app-wide `next/font` setup in `src/app/_lib/fonts.ts` when root special files such as `not-found.tsx` or
   `global-error.tsx` need the same font variables. Export font variables/classes only; do not hide unrelated
@@ -166,6 +166,8 @@ the relevant guide in `node_modules/next/dist/docs/` before writing any code. He
 
 - Import Tailwind/global CSS once from `src/app/layout.tsx`. Do not re-import `@import "tailwindcss"` in a root
   404-specific stylesheet.
+- Import the UI kit compiled stylesheet before this app's `./globals.css` so app-level globals, CSS variables, and
+  overrides have the final cascade position.
 - Put global element defaults, such as `body` styles, inside `@layer base` so Tailwind utility classes can override them
   without `!important`.
 - Avoid broad global link styling unless it is intentionally a site-wide default; prefer component or route-level
