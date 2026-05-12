@@ -7,9 +7,6 @@
 	},
 	"linter": {
 		"rules": {
-			"suspicious": {
-				"noUnknownAtRules": "off"
-			},
 			"nursery": {
 				"useSortedClasses": { "level": "error", "fix": "safe" }
 			}

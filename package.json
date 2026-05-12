@@ -33,6 +33,8 @@
 		"git:status": "git status",
 		"git:pull": "git pull",
 		"git:normalize": "git add --renormalize .",
+		"git:stash": "git stash",
+		"git:stash-pop": "git stash pop",
 		"clean:next": "bun scripts/clean.ts next",
 		"clean:modules": "bun scripts/clean.ts modules",
 		"clean:all": "bun scripts/clean.ts next modules"
