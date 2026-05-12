@@ -6,43 +6,33 @@
 		"dev": "next dev --port 3100",
 		"dev:webpack": "next dev --port 3150 --webpack",
 		"dev:https": "bun run dev --port 3200 --experimental-https",
-
 		"build": "next build --debug",
 		"build:check": "bun run type:check && bun run check:lint && bun run i18n:check",
-		"build:verify": "bun run check && bun run build",
-
+		"build:verify": "bun run build:check && bun run build",
 		"start": "next start",
 		"start:demo": "bun run build && bun run start --port 3300",
 		"start:cpu-prof": "bun run start --port 3400 --experimental-cpu-prof",
-
 		"type:gen": "next typegen",
 		"type:check": "bun run type:gen && tsc --noEmit",
-
 		"analyze": "next experimental-analyze",
 		"analyze:output": "bun run analyze --output",
 		"analyze:info": "next info",
-
 		"check:lint": "biome check",
 		"check:format": "biome format --write",
 		"check:fix": "bun run check:lint --write",
 		"check:fix-unsafe": "bun run check:fix --unsafe",
-
 		"i18n:check": "i18n-check --source en --locales messages --format next-intl",
 		"i18n:unused": "bun run i18n:check --unused src",
-
 		"deps:install": "bun install",
 		"deps:outdated": "bun outdated",
 		"deps:update": "bun update --interactive",
-
 		"ui:link": "bun link nodzimo-ui",
 		"ui:add": "bun install ../nodzimo-ui/nodzimo-ui.tgz",
 		"ui:remove": "bun remove nodzimo-ui",
 		"ui:reinstall": "bun run ui:remove && bun run ui:add",
-
 		"git:status": "git status",
 		"git:pull": "git pull",
 		"git:normalize": "git add --renormalize .",
-
 		"clean:next": "bun scripts/clean.ts next",
 		"clean:modules": "bun scripts/clean.ts modules",
 		"clean:all": "bun scripts/clean.ts next modules"
@@ -63,7 +53,7 @@
 		"@biomejs/biome": "2.4.15",
 		"@lingual/i18n-check": "0.9.5",
 		"@tailwindcss/postcss": "4.3.0",
-		"@types/node": "25.6.2",
+		"@types/node": "25.7.0",
 		"@types/react": "19.2.14",
 		"@types/react-dom": "19.2.3",
 		"babel-plugin-react-compiler": "1.0.0",
