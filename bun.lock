@@ -5,7 +5,7 @@
     "": {
       "name": "nodzimo-web",
       "dependencies": {
-        "@sefo/nodzimo-ui": "latest",
+        "@sefo/nodzimo-ui": "0.0.3",
         "clsx": "2.1.1",
         "next": "16.2.6",
         "next-intl": "4.12.0",
@@ -202,7 +202,7 @@
 
     "@schummar/icu-type-parser": ["@schummar/icu-type-parser@1.21.5", "", {}, "sha512-bXHSaW5jRTmke9Vd0h5P7BtWZG9Znqb8gSDxZnxaGSJnGwPLDPfS+3g0BKzeWqzgZPsIVZkM7m2tbo18cm5HBw=="],
 
-    "@sefo/nodzimo-ui": ["@sefo/nodzimo-ui@0.0.2", "", { "dependencies": { "@base-ui/react": "1.4.1", "class-variance-authority": "0.7.1", "clsx": "2.1.1", "lucide-react": "1.16.0", "tailwind-merge": "3.6.0" }, "peerDependencies": { "react": "19.x", "react-dom": "19.x" } }, "sha512-tBKKdV00jYklAM9MOTPPGaUQBbsno444As/m+L5L1XPgYfWj/PlPNrug/w9IxV+MRwcnuiUPRyUm1zkpZ9KZ+w=="],
+    "@sefo/nodzimo-ui": ["@sefo/nodzimo-ui@0.0.3", "", { "dependencies": { "@base-ui/react": "1.4.1", "class-variance-authority": "0.7.1", "clsx": "2.1.1", "lucide-react": "1.16.0", "tailwind-merge": "3.6.0" }, "peerDependencies": { "react": "19.x", "react-dom": "19.x" } }, "sha512-qnZAliCgnISJX8ofUqG0MMIeXsEnhRhcGZ8Drrf74XuRdsSSZpRHkJtsBlW8TB3dDn9TpaNQFnhhNznTt2ZtSw=="],
 
     "@swc/core": ["@swc/core@1.15.33", "", { "dependencies": { "@swc/counter": "^0.1.3", "@swc/types": "^0.1.26" }, "optionalDependencies": { "@swc/core-darwin-arm64": "1.15.33", "@swc/core-darwin-x64": "1.15.33", "@swc/core-linux-arm-gnueabihf": "1.15.33", "@swc/core-linux-arm64-gnu": "1.15.33", "@swc/core-linux-arm64-musl": "1.15.33", "@swc/core-linux-ppc64-gnu": "1.15.33", "@swc/core-linux-s390x-gnu": "1.15.33", "@swc/core-linux-x64-gnu": "1.15.33", "@swc/core-linux-x64-musl": "1.15.33", "@swc/core-win32-arm64-msvc": "1.15.33", "@swc/core-win32-ia32-msvc": "1.15.33", "@swc/core-win32-x64-msvc": "1.15.33" }, "peerDependencies": { "@swc/helpers": ">=0.5.17" }, "optionalPeers": ["@swc/helpers"] }, "sha512-jOlwnFV2xhuuZeAUILGFULeR6vDPfijEJ57evfocwznQldLU3w2cZ9bSDryY9ip+AsM3r1NJKzf47V2NXebkeQ=="],
 
