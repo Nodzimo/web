@@ -248,6 +248,8 @@ the relevant guide in `node_modules/next/dist/docs/` before writing any code. He
 - Keep dependency installs under `clean:modules`.
 - Keep generated HTTPS certificates under `clean:certs`; `clean:all` should include certificates along with the other
   cleanup targets.
+- Keep local development port cleanup under `clean:ports`. The project uses `fkill-cli`; list each `:port` explicitly
+  because `fkill` does not support a documented port-range argument.
 
 ## Verification
 

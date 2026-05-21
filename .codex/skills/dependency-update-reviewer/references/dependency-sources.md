@@ -28,6 +28,7 @@ metadata when a package changes ownership, homepage, or repository.
 | `babel-plugin-react-compiler` | https://github.com/facebook/react/tree/main/compiler/packages/babel-plugin-react-compiler, https://react.dev/learn/react-compiler | Compiler diagnostics, Next `reactCompiler` compatibility, memoization semantics.                                       |
 | `dependency-cruiser`          | https://github.com/sverweij/dependency-cruiser, https://github.com/sverweij/dependency-cruiser/releases                           | Config schema, no-orphans behavior, TS/ESM parser support, dependency graph generation.                                |
 | `@lingual/i18n-check`         | https://github.com/lingualdev/i18n-check                                                                                          | Missing/unused/invalid key detection, next-intl format handling, false positives around wrappers and metadata helpers. |
+| `fkill-cli`                   | https://github.com/sindresorhus/fkill-cli, https://github.com/sindresorhus/fkill                                                  | `clean:ports` behavior, CLI port-target syntax, cross-platform process termination, and failure output.                |
 
 ## Local Review Commands
 
