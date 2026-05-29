@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import type { Locale } from 'next-intl'
 import { getPathname, routing } from '@/i18n'
 
-const host = 'https://nodzimo.com'
+const HOST = 'https://nodzimo.com'
 
 type Href = keyof typeof routing.pathnames
 
@@ -12,7 +12,7 @@ type SitemapRoute = {
 	href: Href
 } & Pick<SitemapEntry, 'changeFrequency' | 'priority'>
 
-const sitemapRoutes: readonly SitemapRoute[] = [
+const SITEMAP_ROUTES = [
 	{
 		changeFrequency: 'daily',
 		href: '/',
@@ -23,10 +23,10 @@ const sitemapRoutes: readonly SitemapRoute[] = [
 		href: '/test',
 		priority: 0.1,
 	},
-]
+] as const satisfies readonly SitemapRoute[]
 
 function getUrl(locale: Locale, href: Href) {
-	return host + getPathname({ href, locale })
+	return HOST + getPathname({ href, locale })
 }
 
 type LanguageAlternates = Record<Locale, string>
@@ -40,7 +40,7 @@ function getLanguageAlternates(href: Href): LanguageAlternates {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	return sitemapRoutes.map(
+	return SITEMAP_ROUTES.map(
 		({ href, changeFrequency, priority }): SitemapEntry => {
 			return {
 				alternates: {

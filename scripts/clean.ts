@@ -3,9 +3,9 @@ import { lstat, mkdir, readdir, rename, rm } from 'node:fs/promises'
 import { basename, dirname, isAbsolute, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 
-const cleanTargets = {
+const CLEAN_TARGETS = {
 	certs: {
 		label: 'generated certificates',
 		paths: ['certificates'],
@@ -26,14 +26,14 @@ const cleanTargets = {
 	},
 } as const
 
-type CleanTarget = keyof typeof cleanTargets
+type CleanTarget = keyof typeof CLEAN_TARGETS
 
 function isCleanTarget(value: string): value is CleanTarget {
-	return Object.hasOwn(cleanTargets, value)
+	return Object.hasOwn(CLEAN_TARGETS, value)
 }
 
 function assertInsideProject(path: string) {
-	const relativePath = relative(projectRoot, path)
+	const relativePath = relative(PROJECT_ROOT, path)
 
 	if (
 		relativePath === '' ||
@@ -59,19 +59,19 @@ async function pathExists(path: string) {
 
 async function collectMatchingPaths(pattern: string) {
 	if (!pattern.includes('*')) {
-		return [resolve(projectRoot, pattern)]
+		return [resolve(PROJECT_ROOT, pattern)]
 	}
 
 	if (pattern === '*.tsbuildinfo') {
-		const entries = await readdir(projectRoot, { withFileTypes: true })
+		const entries = await readdir(PROJECT_ROOT, { withFileTypes: true })
 
 		return entries
 			.filter((entry) => entry.isFile() && entry.name.endsWith('.tsbuildinfo'))
-			.map((entry) => resolve(projectRoot, entry.name))
+			.map((entry) => resolve(PROJECT_ROOT, entry.name))
 	}
 
 	if (pattern === 'messages/*.d.json.ts') {
-		const messagesPath = resolve(projectRoot, 'messages')
+		const messagesPath = resolve(PROJECT_ROOT, 'messages')
 
 		if (!(await pathExists(messagesPath))) {
 			return []
@@ -95,7 +95,7 @@ async function removeTarget(path: string) {
 		return
 	}
 
-	const trashRoot = resolve(projectRoot, '.clean-trash')
+	const trashRoot = resolve(PROJECT_ROOT, '.clean-trash')
 	const trashPath = resolve(
 		trashRoot,
 		`${basename(path)}-${Date.now()}-${process.pid}`,
@@ -153,7 +153,7 @@ const requestedTargets = process.argv.slice(2)
 
 if (requestedTargets.length === 0) {
 	console.error(
-		`Usage: bun scripts/clean.ts <${Object.keys(cleanTargets).join('|')}> [...]`,
+		`Usage: bun scripts/clean.ts <${Object.keys(CLEAN_TARGETS).join('|')}> [...]`,
 	)
 	process.exit(1)
 }
@@ -161,11 +161,11 @@ if (requestedTargets.length === 0) {
 for (const targetName of requestedTargets) {
 	if (!isCleanTarget(targetName)) {
 		console.error(`Unknown clean target: ${targetName}`)
-		console.error(`Available targets: ${Object.keys(cleanTargets).join(', ')}`)
+		console.error(`Available targets: ${Object.keys(CLEAN_TARGETS).join(', ')}`)
 		process.exit(1)
 	}
 
-	const target = cleanTargets[targetName]
+	const target = CLEAN_TARGETS[targetName]
 	const targetPaths = (
 		await Promise.all(target.paths.map((path) => collectMatchingPaths(path)))
 	).flat()
@@ -174,7 +174,7 @@ for (const targetName of requestedTargets) {
 		assertInsideProject(targetPath)
 
 		if (!(await pathExists(targetPath))) {
-			console.log(`Skipped ${relative(projectRoot, targetPath)}: not found`)
+			console.log(`Skipped ${relative(PROJECT_ROOT, targetPath)}: not found`)
 			continue
 		}
 
@@ -183,7 +183,9 @@ for (const targetName of requestedTargets) {
 		}
 
 		await removeTarget(targetPath)
-		console.log(`Removed ${target.label}: ${relative(projectRoot, targetPath)}`)
+		console.log(
+			`Removed ${target.label}: ${relative(PROJECT_ROOT, targetPath)}`,
+		)
 	}
 }
 
@@ -224,7 +226,7 @@ function releaseWindowsProjectLocks(path: string) {
 			'Start-Sleep -Milliseconds 300',
 		].join('\n'),
 		{
-			CLEAN_PROJECT: projectRoot,
+			CLEAN_PROJECT: PROJECT_ROOT,
 			CLEAN_SELF_PID: String(process.pid),
 			CLEAN_TARGET: path,
 		},

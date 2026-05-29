@@ -35,7 +35,9 @@ These changes are usually safe when the local code shape is clear:
 - Replace widened literal-table annotations with `as const` when downstream code derives unions from values or keys.
 - Add `satisfies readonly SomeType[]` to literal option arrays when the array is meant to validate against an external
   finite union without widening its elements.
-- Rename intentional module-scope immutable tables, mappings, option arrays, and defaults to `UPPER_SNAKE_CASE`.
+- Rename intentional module-scope immutable literal tables, mappings, option arrays, and defaults to `UPPER_SNAKE_CASE`.
+  Apply this only when the value itself is effectively immutable by construction, not merely because the binding uses
+  `const`.
 - Derive unions from literal tables instead of duplicating string unions by hand.
 - Rename hand-authored `.tsx` files to `.ts` when they contain no JSX, and use `.tsx` when JSX is present.
 - Remove explicit `.ts` / `.tsx` extensions from local TypeScript imports when the project resolver can resolve the
@@ -228,7 +230,8 @@ several related components, constants, and types from one module.
 
 ## Literal Table Policy
 
-Use module-scope `UPPER_SNAKE_CASE` for intentional immutable tables, mappings, defaults, and finite option lists:
+Use module-scope `UPPER_SNAKE_CASE` for intentional immutable literal tables, mappings, defaults, and finite option
+lists:
 
 ```ts
 const LOCALE_OPTIONS = ['en', 'ru', 'be', 'uk'] as const
@@ -269,6 +272,27 @@ For runtime APIs that widen keys, cast narrowly after the literal object is decl
 ```ts
 const SOCIAL_LINK_NAMES = Object.keys(SOCIAL_LINKS) as SocialLinkName[]
 ```
+
+Do not rename every module-scope `const` to `UPPER_SNAKE_CASE`. A `const` binding only prevents rebinding; it does not
+make the referenced value immutable. Keep camelCase for mutable objects, class instances, framework descriptors, or
+values returned from factory/runtime functions unless the returned value is explicitly frozen or readonly and local
+conventions already treat that exact kind of value as a constant.
+
+Examples that should usually stay camelCase:
+
+```ts
+const ibmPlexSans = IBM_Plex_Sans({
+    subsets: ['latin'],
+    variable: '--app-font-sans',
+})
+
+const searchParams = new URLSearchParams()
+const formatter = new Intl.NumberFormat('en')
+```
+
+These are module-scope values, but they are not literal immutable tables or defaults. For framework factory functions
+such as `next/font`, preserve the framework's idiomatic camelCase names unless the project has an explicit local rule
+for that API.
 
 ## Declaration Spacing Policy
 
@@ -340,7 +364,8 @@ remove, rename, or "fix" classes.
 - JSX string literal props in hand-authored TSX use `{...}` expression containers.
 - Boolean shorthand remains shorthand when appropriate.
 - Destructured remainder names use `restProps`, `restArgs`, or `restParams`.
-- Module-scope literal tables use `UPPER_SNAKE_CASE`.
+- Module-scope immutable literal tables use `UPPER_SNAKE_CASE`; mutable objects and factory return values stay
+  camelCase.
 - Literal option arrays and mappings use `as const` when deriving unions.
 - `satisfies` validates external contracts without widening literal values.
 - `type` and `interface` choices reflect TypeScript semantics, not preference.
