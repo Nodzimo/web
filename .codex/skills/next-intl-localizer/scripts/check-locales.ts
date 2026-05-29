@@ -16,7 +16,7 @@ type FlatMessages = Map<string, string>
 const messagesDir = join(process.cwd(), 'messages')
 const sourceLocale = 'en'
 const localeFiles = readdirSync(messagesDir)
-	.filter(file => file.endsWith('.json'))
+	.filter((file) => file.endsWith('.json'))
 	.sort()
 
 function readJson(file: string): JsonValue {
@@ -100,8 +100,8 @@ for (const file of localeFiles) {
 
 	const locale = basename(file, '.json')
 	const target = flatten(readJson(file))
-	const missing = [...source.keys()].filter(key => !target.has(key))
-	const extra = [...target.keys()].filter(key => !source.has(key))
+	const missing = [...source.keys()].filter((key) => !target.has(key))
+	const extra = [...target.keys()].filter((key) => !source.has(key))
 	const placeholderMismatches: string[] = []
 
 	for (const [key, sourceMessage] of source) {

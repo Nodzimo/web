@@ -8,7 +8,7 @@ export function LocaleSwitcher() {
 
 	return (
 		<LocaleSwitcherSelect defaultValue={locale} label={t('label')}>
-			{routing.locales.map(locale => (
+			{routing.locales.map((locale) => (
 				<option key={locale} value={locale}>
 					{t('locale', { locale })}
 				</option>
