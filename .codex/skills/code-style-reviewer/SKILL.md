@@ -339,6 +339,15 @@ unit.
 
 ## Tailwind Class Lists
 
+Use `class`, `className`, `classNames`, `classes`, and `*_CLASSES` naming for values that contain Tailwind class
+strings, including string constants, arrays, and object tables. Reserve `style` and `styles` naming for inline style
+objects, `CSSProperties`, and other non-Tailwind style declarations.
+
+The shared WebStorm Tailwind `experimental.classRegex` convention should stay scoped to variable declarations whose
+names contain class/className/classNames/classes/CLASSES. Do not broaden it to `styles`; JSX `className` attributes are
+already handled by Tailwind's normal class-attribute support. The project regex convention is adapted from the
+practical examples in <https://github.com/codewithhridoy/tailwind-autosuggestion-for-custom-classes>.
+
 When long Tailwind class strings hurt scanning or diffs, use the `tailwind-class-formatter` skill. Do not duplicate that
 skill's grouping rules here.
 
