@@ -1,5 +1,10 @@
 # Skills
 
+Keep skills procedural. Durable project rules belong in `docs/agent`, detailed skill-specific references belong in skill
+`references`, and repeatable checks belong in skill `scripts`. Do not duplicate large project rules inside `SKILL.md`;
+when removing duplicated skill text, first verify that any unique project fact is preserved in the proper source of
+truth.
+
 - For next-intl message translation, synchronization, or validation, use the project-local `next-intl-localizer` skill
   at `.codex/skills/next-intl-localizer`.
 - For pre-update dependency research from `bun outdated`, post-update changelog review, breaking-change triage, or
