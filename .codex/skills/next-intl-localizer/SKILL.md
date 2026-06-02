@@ -7,23 +7,17 @@ description: Update, review, or validate this project's next-intl message files.
 
 ## Overview
 
-Use this skill for the local `next-intl` workflow in this repo. The project uses English as the canonical UI source, Russian as tone/context, and generated secondary locales for Slavic, European, Arabic, Japanese, and Chinese audiences.
+Use this skill for the local `next-intl` message workflow in this repo.
 
-## Locale Policy
+This skill is a localization workflow. Before translating or reviewing messages, read:
 
-- Treat `messages/en.json` as the default locale and primary translation source.
-- Treat `messages/ru.json` as the author's native-language context for tone, jokes, cultural references, and intent.
-- Generate secondary locales from English while consulting Russian when wording is ambiguous.
-- Keep locale order grouped by product intent:
-  - `en`: default/canonical source.
-  - `ru`: author's native-language context.
-  - `be`, `uk`: nearby Slavic block.
-  - `de`, `fr`, `it`, `es`: European block.
-  - `ar`: Modern Standard Arabic for broad Arabic UI use.
-  - `zh`: Simplified Chinese with Mainland-style UI wording.
-  - `ja`: natural Japanese UI wording, concise and not overly literal.
-- Preserve this order everywhere users see or route through locales: `en`, `ru`, `be`, `uk`, `de`, `fr`, `it`, `es`, `ar`, `zh`, `ja`.
-- Do not invent dialect-specific Arabic, Traditional Chinese, regional Japanese variants, or alternate European regional variants unless the user explicitly asks.
+- `docs/agent/next-intl-localization.md`
+- `docs/agent/next-intl-and-static-rendering.md` when routing, locale lists, metadata, sitemap, loading, or not-found
+  behavior changes
+- `references/translation-style.md` before translating or reviewing wording
+
+Keep the skill body focused on the update procedure. Keep durable locale policy in agent docs and language guidance in
+the reference.
 
 ## Update Workflow
 
@@ -31,19 +25,12 @@ Use this skill for the local `next-intl` workflow in this repo. The project uses
 2. Identify missing, extra, or changed keys by comparing nested key paths.
 3. Translate only missing or intentionally changed values unless the user asks for a full review.
 4. Preserve JSON object structure and nearby formatting.
-5. Preserve ICU expressions exactly:
-   - variables like `{name}`, `{count}`, `{locale}`
-   - select/plural argument names
-   - rich-text tags like `<link>...</link>`
-6. Do not translate brand names, route slugs, component names, CSS classes, env names, file paths, or technical identifiers.
-7. After edits, run the smallest useful validation:
-   - `bun .codex/skills/next-intl-localizer/scripts/check-locales.ts`
-   - `bun run i18n:check` when project dependencies are available
-8. If routing or locale lists are changed, also follow the repo's App Router verification rules from `AGENTS.md`.
-
-## Translation Style
-
-Read `references/translation-style.md` before translating or reviewing wording. Keep the skill body lean; put detailed language rules and examples there.
+5. Preserve ICU expressions, brand names, route slugs, component names, CSS classes, env names, file paths, and
+   technical identifiers according to `docs/agent/next-intl-localization.md`.
+6. After edits, run the smallest useful validation:
+    - `bun .codex/skills/next-intl-localizer/scripts/check-locales.ts`
+    - `bun run i18n:check` when project dependencies are available
+7. If routing or locale lists are changed, also follow `docs/agent/next-intl-and-static-rendering.md`.
 
 ## Expected User Prompts
 
@@ -54,4 +41,5 @@ Typical requests that should use this skill:
 - "Sync `messages/*.json` using the project localization rules."
 - "Check that all next-intl locale files still match."
 
-When the user only asks for advice about localization architecture, answer first and do not edit files unless they explicitly ask for implementation.
+When the user only asks for advice about localization architecture, answer first and do not edit files unless they
+explicitly ask for implementation.

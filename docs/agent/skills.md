@@ -14,5 +14,3 @@
   type-vs-interface choices, literal table typing, module constant naming, file extension/import/export style checks,
   readable declaration spacing, and orchestration of Tailwind class formatting, use the project-local
   `code-style-reviewer` skill at `.codex/skills/code-style-reviewer`.
-- Keep supported locale order consistent across routing, selectors, and message select cases: `en`, `ru`, `be`, `uk`,
-  `de`, `fr`, `it`, `es`, `ar`, `zh`, `ja`.

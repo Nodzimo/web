@@ -100,6 +100,13 @@ special-file constraints.
 
 See [docs/agent/next-intl-and-static-rendering.md](docs/agent/next-intl-and-static-rendering.md).
 
+## next-intl Localization
+
+Message localization uses English as the canonical source, Russian as tone/context, and a fixed supported-locale order
+across routing, selectors, messages, and user-visible locale choices.
+
+See [docs/agent/next-intl-localization.md](docs/agent/next-intl-localization.md).
+
 ## Styling
 
 Styling conventions cover Tailwind class naming, WebStorm class regex documentation, global CSS import order, base layer
