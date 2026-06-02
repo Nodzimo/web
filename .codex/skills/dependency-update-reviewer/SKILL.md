@@ -11,6 +11,14 @@ Use this skill to turn dependency update noise into a short engineering decision
 map the changes to the codebase's actual usage, and say whether the project should update, can commit an existing
 update, or needs action.
 
+This skill is a review workflow. Before making project-specific recommendations, read:
+
+- `docs/agent/dependency-updates.md`
+- `docs/agent/verification.md`
+- `docs/agent/biome-policy.md` when Biome is involved
+- `docs/agent/ui-kit-consumption.md` when `@sefo/nodzimo-ui` is involved
+- `references/dependency-sources.md` for the current upstream source map and local review focus
+
 Do not edit project files unless the user explicitly asks for implementation. A review request should end with a report,
 not a patch.
 
@@ -150,13 +158,5 @@ Sources: ...
 
 ## Project-Specific Notes
 
-This repository uses Bun, Next.js App Router, React, TypeScript strict mode, Tailwind CSS, Biome, Dependency Cruiser,
-and next-intl. Read root `AGENTS.md` before interpreting framework, i18n, lint, or IDE-setting changes.
-
-When `@biomejs/biome` is updated, treat `biome.json` as part of the dependency update surface, even for patch updates.
-Check that the `$schema` version matches the installed Biome version when the schema URL is versioned. Prefer the local
-project script `bun run biome:migrate` when present; otherwise use `biome migrate --write`. Do not recommend `bunx` for
-this project when `@biomejs/biome` is already installed locally.
-
-Keep the skill portable: put reusable workflow rules here, and keep this repo's current dependency source map in
-`references/dependency-sources.md`.
+Keep reusable dependency-review workflow rules in this skill. Keep project policy in `docs/agent/dependency-updates.md`
+and the current dependency source map in `references/dependency-sources.md`.

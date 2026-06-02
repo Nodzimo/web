@@ -52,6 +52,13 @@ formatting, and final code-style review.
 
 See [docs/agent/skills.md](docs/agent/skills.md).
 
+## Dependency Updates
+
+Dependency update review should combine official upstream research, local package usage, project verification commands,
+and package-specific notes for Next, Biome, Tailwind, next-intl, and the sibling UI kit.
+
+See [docs/agent/dependency-updates.md](docs/agent/dependency-updates.md).
+
 ## Biome Policy
 
 Biome configuration should stay compact and intentional, with project-specific formatter, linter, assist, Tailwind,
