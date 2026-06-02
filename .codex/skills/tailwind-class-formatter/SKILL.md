@@ -13,6 +13,9 @@ groups.
 
 This is a formatting and grouping skill only. It must preserve the exact style contract.
 
+Before editing, read `docs/agent/styling.md` for project styling conventions and `docs/agent/biome-policy.md` for the
+local Biome/Tailwind sorting policy.
+
 ## Non-Negotiable Safety Contract
 
 - Do not add, remove, rename, replace, or "improve" Tailwind classes.
@@ -80,13 +83,13 @@ Good for existing `clsx(...)` usage:
 
 ```tsx
 const triggerClassName = clsx(
-	'flex min-h-10 w-full items-center justify-between',
-	'gap-2 rounded-md border px-3 py-2',
-	'text-sm shadow-sm transition-colors',
-	'hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2',
-	'disabled:cursor-not-allowed disabled:opacity-50',
-	'data-[state=open]:bg-neutral-100',
-	className,
+    'flex min-h-10 w-full items-center justify-between',
+    'gap-2 rounded-md border px-3 py-2',
+    'text-sm shadow-sm transition-colors',
+    'hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2',
+    'disabled:cursor-not-allowed disabled:opacity-50',
+    'data-[state=open]:bg-neutral-100',
+    className,
 )
 ```
 
@@ -94,19 +97,20 @@ Good for plain JSX when a multiline expression is clearer:
 
 ```tsx
 <main
-	className={
-		'flex min-h-full flex-col items-center justify-center gap-6 px-4 py-10 text-center'
-	}
+    className={
+        'flex min-h-full flex-col items-center justify-center gap-6 px-4 py-10 text-center'
+    }
 >
-	{children}
+    {children}
 </main>
 ```
 
 Avoid:
 
 ```tsx
-<main className={'flex min-h-full flex-col items-center justify-center gap-6 px-4 py-10 text-center hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 data-[state=open]:bg-neutral-100'}>
-	{children}
+<main
+    className={'flex min-h-full flex-col items-center justify-center gap-6 px-4 py-10 text-center hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 data-[state=open]:bg-neutral-100'}>
+    {children}
 </main>
 ```
 
@@ -114,7 +118,7 @@ Also avoid introducing abstractions only as a line-break mechanism:
 
 ```ts
 const styles = {
-	main: '...',
+    main: '...',
 }
 ```
 
@@ -127,7 +131,7 @@ Use helper objects only when the file already has a real variant or reuse model.
 3. Split classes into the modifier groups and base utility families above.
 4. Keep static class chunks as literal strings so Tailwind source scanning still sees them.
 5. Keep caller `className` or override values last.
-6. Run the smallest relevant verification, usually `bunx biome check <changed-file>` or `bun run check:lint`.
+6. Run the smallest relevant verification, usually `bun run check:lint` or `bunx biome check <changed-file>`.
 7. If the file already has automated class sorting, let Biome sort inside each string, then review that no class moved
    across a grouping boundary in a way that hurts readability.
 
