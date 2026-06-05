@@ -47,6 +47,7 @@
 		"clean:modules": "bun scripts/clean modules",
 		"clean:next": "bun scripts/clean next",
 		"clean:ports": "fkill :3100 :3150 :3200 :3300 :3400",
+		"deps:audit": "bun audit",
 		"deps:install": "bun install",
 		"deps:outdated": "bun outdated",
 		"deps:update": "bun update --interactive",

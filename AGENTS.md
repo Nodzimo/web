@@ -134,6 +134,13 @@ remains a separate site-hosting concern.
 
 See [docs/agent/github-releases.md](docs/agent/github-releases.md).
 
+## Scripts
+
+Project scripts define the regular analysis, build, check, clean, dependency, release, local UI-kit, and git helper
+commands.
+
+See [docs/agent/scripts.md](docs/agent/scripts.md).
+
 ## Verification
 
 Use the smallest relevant verification command, escalating to project audit, production build, or full verify when
