@@ -42,6 +42,14 @@
 		{
 			"type": "Boosty",
 			"url": "https://boosty.to/Nodzimo"
+		},
+		{
+			"type": "Buy Me a Coffee",
+			"url": "https://buymeacoffee.com/Nodzimo"
+		},
+		{
+			"type": "Ko-fi",
+			"url": "https://ko-fi.com/Nodzimo"
 		}
 	],
 	"homepage": "https://Nodzimo.com",
