@@ -8,6 +8,11 @@ the relevant guide in `node_modules/next/dist/docs/` before writing any code. He
 
 # Nodzimo Web Agent Operating Charter
 
+## Context Economy
+
+Use [Agent Context Economy](docs/agent-operating-charter/context-economy.md) as the default Codex working contract:
+scope first, read in layers, use broad context deliberately, verify narrowly, and report concisely.
+
 ## Stack
 
 This project is a Bun-based Next.js 16 App Router consumer of `@nodzimo/ui`, with React 19, TypeScript strict

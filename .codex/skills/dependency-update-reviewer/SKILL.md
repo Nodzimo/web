@@ -11,13 +11,16 @@ Use this skill to turn dependency update noise into a short engineering decision
 map the changes to the codebase's actual usage, and say whether the project should update, can commit an existing
 update, or needs action.
 
-This skill is a review workflow. Before making project-specific recommendations, read:
+This skill is a review workflow. Read project context conditionally instead of loading every dependency document by
+default:
 
-- `docs/agent-operating-charter/dependency-updates.md`
-- `docs/agent-operating-charter/verification.md`
-- `docs/agent-operating-charter/biome-policy.md` when Biome is involved
-- `docs/agent-operating-charter/ui-kit-consumption.md` when `@nodzimo/ui` is involved
-- `references/dependency-sources.md` for the current upstream source map and local review focus
+- Always read `docs/agent-operating-charter/dependency-updates.md` and
+  `docs/agent-operating-charter/verification.md`.
+- Read `docs/agent-operating-charter/biome-policy.md` only when Biome is involved.
+- Read `docs/agent-operating-charter/ui-kit-consumption.md` only when `@nodzimo/ui`, local tarball testing, package
+  linking, or sibling UI-kit compatibility is involved.
+- Read `references/dependency-sources.md` only when official upstream source routing is needed for the selected
+  packages.
 
 Do not edit project files unless the user explicitly asks for implementation. A review request should end with a report,
 not a patch.
