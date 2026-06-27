@@ -41,6 +41,8 @@
 		},
 		"rules": {
 			"nursery": {
+				"noUndeclaredClasses": "error",
+				"noUnusedClasses": "error",
 				"useSortedClasses": {
 					"fix": "safe",
 					"level": "error"
