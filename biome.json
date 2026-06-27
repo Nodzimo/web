@@ -3,15 +3,24 @@
 	"assist": {
 		"actions": {
 			"source": {
+				"noDuplicateClasses": "on",
 				"useSortedAttributes": "on",
+				"useSortedEnumMembers": "on",
 				"useSortedInterfaceMembers": "on",
-				"useSortedKeys": "on"
+				"useSortedKeys": "on",
+				"useSortedProperties": "on"
 			}
 		}
 	},
-	"css": { "parser": { "tailwindDirectives": true } },
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
 	"html": {
-		"formatter": { "enabled": true }
+		"formatter": {
+			"enabled": true
+		}
 	},
 	"javascript": {
 		"formatter": {
@@ -20,7 +29,11 @@
 			"semicolons": "asNeeded"
 		}
 	},
-	"json": { "parser": { "allowComments": false } },
+	"json": {
+		"parser": {
+			"allowComments": false
+		}
+	},
 	"linter": {
 		"domains": {
 			"next": "recommended",
@@ -28,7 +41,10 @@
 		},
 		"rules": {
 			"nursery": {
-				"useSortedClasses": { "fix": "safe", "level": "error" }
+				"useSortedClasses": {
+					"fix": "safe",
+					"level": "error"
+				}
 			},
 			"style": {
 				"noUnusedTemplateLiteral": "error"
