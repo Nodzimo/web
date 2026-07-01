@@ -1,7 +1,7 @@
 # Stack
 
 - Package/runtime tooling: Bun.
-- Runtime baseline: Node 25.x, Bun 1.3.x.
+- Runtime baseline: Node 26.x, Bun 1.3.x.
 - Framework: Next.js 16 App Router with React 19 and TypeScript strict mode.
 - Styling: Tailwind CSS v4, checked by Biome with sorted Tailwind classes.
 - Internationalization: `next-intl` with locale routes under `src/app/[locale]`.

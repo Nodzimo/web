@@ -10,7 +10,7 @@
 
 [variables]
 NODE_ENV = 'production'
-NODE_VERSION = '25'
+NODE_VERSION = '26'
 BUN_VERSION = '1.3.13'
 NEXT_TELEMETRY_DISABLED = '1'
 
