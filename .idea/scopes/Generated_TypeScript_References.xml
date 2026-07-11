@@ -1,0 +1,4 @@
+<component name="DependencyValidationManager">
+    <scope name="Generated TypeScript References"
+           pattern="file:next-env.d.ts||file:.codex/skills/next-intl-localizer/scripts/check-locales.ts"/>
+</component>

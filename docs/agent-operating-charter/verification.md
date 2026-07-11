@@ -7,6 +7,8 @@
 - For GitHub Release workflow changes, validate with a single test version tag when needed and clean up experimental
   tags/releases explicitly. See [GitHub Releases](github-releases.md).
 - Prefer `bun run type:check` for route type and TypeScript validation.
+- If `next typegen` reports that TypeScript required packages are missing after a TypeScript major update, check the
+  [TypeScript 7 incident](dependency-updates.md#typescript-7-incident) before installing packages manually.
 - Prefer `bun run check:lint` for lint/style validation.
 - Use `bun run check:deps` for Dependency Cruiser validation. Use `bun run check:deps-graph` only when intentionally
   regenerating the SVG dependency graph; it requires Graphviz `dot` to be available on `PATH`.
