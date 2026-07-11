@@ -18,7 +18,7 @@
 	},
 	"description": "Sefo Nodzimo Web",
 	"devDependencies": {
-		"@biomejs/biome": "2.5.2",
+		"@biomejs/biome": "2.5.3",
 		"@lingual/i18n-check": "0.9.5",
 		"@tailwindcss/postcss": "4.3.2",
 		"@types/node": "26.1.1",
