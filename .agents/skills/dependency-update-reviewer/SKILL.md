@@ -97,7 +97,7 @@ Start by deciding which mode applies:
 
 3. Check local usage.
     - Search with `rg` for imports, config keys, CLI usage, generated files, and package-specific APIs.
-    - Check both app code and project tooling files: `src`, `scripts`, config files, `messages`, `.codex`, `.idea` only
+    - Check both app code and project tooling files: `src`, `scripts`, config files, `messages`, `.agents`, `.idea` only
       when relevant.
     - For framework/tooling updates, inspect config and scripts even when there are few direct imports.
 

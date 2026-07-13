@@ -20,6 +20,9 @@ This skill is a localization workflow. Before translating or reviewing messages,
 Keep the skill body focused on the update procedure. Keep durable locale policy in agent docs and language guidance in
 the reference.
 
+When the user asks only for localization architecture advice, answer first and do not edit files unless implementation
+is explicitly requested.
+
 ## Update Workflow
 
 1. Inspect `messages/en.json`, `messages/ru.json`, and existing target locale files.
@@ -32,15 +35,3 @@ the reference.
     - `bun .agents/skills/next-intl-localizer/scripts/check-locales.ts`
     - `bun run i18n:check` when project dependencies are available
 7. If routing or locale lists are changed, also follow `docs/agent-operating-charter/next-intl-and-static-rendering.md`.
-
-## Expected User Prompts
-
-Typical requests that should use this skill:
-
-- "Update locales after I added new English/Russian messages."
-- "Fill missing Belarusian, Ukrainian, German, French, Italian, Spanish, Arabic, Japanese, and Chinese translations."
-- "Sync `messages/*.json` using the project localization rules."
-- "Check that all next-intl locale files still match."
-
-When the user only asks for advice about localization architecture, answer first and do not edit files unless they
-explicitly ask for implementation.
