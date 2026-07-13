@@ -123,7 +123,7 @@ Use the smallest durable home for each rule:
 - `AGENTS.md`: entrypoint, routing, and project-specific non-negotiable rules. Keep it short enough to load reliably.
 - `docs/agent-operating-charter`: durable agent/project rules.
 - domain docs: product, design, operations, runbooks, incidents, evidence.
-- `.codex/skills`: repeatable procedures.
+- `.agents/skills`: repeatable procedures.
 - skill `references`: long background loaded only when needed.
 - skill `scripts`: repeatable mechanical work.
 - Codex memories: optional local recall, never the only source for required project rules.

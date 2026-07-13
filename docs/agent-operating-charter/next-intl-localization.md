@@ -21,6 +21,6 @@
     - rich-text tags like `<link>...</link>`
 - Do not translate brand names, route slugs, component names, CSS classes, env names, file paths, or technical
   identifiers.
-- Use `bun .codex/skills/next-intl-localizer/scripts/check-locales.ts` for deterministic locale key and ICU placeholder
+- Use `bun .agents/skills/next-intl-localizer/scripts/check-locales.ts` for deterministic locale key and ICU placeholder
   checks.
 - Use `bun run i18n:check` for the project-level next-intl validation path when dependencies are available.

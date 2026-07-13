@@ -65,7 +65,7 @@ Start by deciding which mode applies:
 1. Inspect exact local update scope.
     - Run `git status --short`.
     - Run `git diff -- package.json bun.lock package-lock.json pnpm-lock.yaml yarn.lock`.
-    - If useful, run `python .codex/skills/dependency-update-reviewer/scripts/changed_dependencies.py`.
+    - If useful, run `python .agents/skills/dependency-update-reviewer/scripts/changed_dependencies.py`.
     - Identify each changed direct dependency and version pair.
 
 2. Research upstream and local usage using the shared research workflow below.
