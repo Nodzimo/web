@@ -36,7 +36,7 @@ export default async function LocaleLayout({
 
 	return (
 		<html
-			className={`${fontVariables} h-full bg-fuchsia-500 antialiased`}
+			className={`${fontVariables} nui-interactive nui-surface nui-boundaries h-full bg-fuchsia-500 antialiased`}
 			dir={locale === 'ar' ? 'rtl' : 'ltr'}
 			lang={locale}
 		>
