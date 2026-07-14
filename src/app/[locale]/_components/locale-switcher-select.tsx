@@ -1,25 +1,35 @@
 'use client'
 
-import clsx from 'clsx'
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	type SelectOptions,
+	SelectTrigger,
+	SelectValue,
+} from '@nodzimo/ui/client'
 import { useParams } from 'next/navigation'
 import type { Locale } from 'next-intl'
-import { type ChangeEvent, type ReactNode, useTransition } from 'react'
+import { useTransition } from 'react'
 import { usePathname, useRouter } from '@/i18n'
 
 type Props = {
-	children: ReactNode
-	defaultValue: string
+	locale: Locale
 	label: string
+	items: SelectOptions<Locale>
 }
 
-export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
+export function LocaleSwitcherSelect({ locale, items, label }: Props) {
 	const router = useRouter()
 	const [isPending, startTransition] = useTransition()
 	const pathname = usePathname()
 	const params = useParams()
 
-	function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-		const nextLocale = event.target.value as Locale
+	function onLocaleChange(nextLocale: Locale | null) {
+		if (nextLocale === null || nextLocale === locale) {
+			return
+		}
 
 		startTransition(() => {
 			router.replace(
@@ -33,21 +43,26 @@ export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
 	}
 
 	return (
-		<label
-			className={clsx(
-				'cursor-pointer rounded bg-lime-100 p-2',
-				isPending && 'transition-opacity disabled:opacity-30',
-			)}
+		<Select
+			disabled={isPending}
+			items={items}
+			onValueChange={onLocaleChange}
+			value={locale}
 		>
-			<span className={'sr-only'}>{label}</span>
-			<select
-				className={'cursor-pointer'}
-				defaultValue={defaultValue}
-				disabled={isPending}
-				onChange={onSelectChange}
-			>
-				{children}
-			</select>
-		</label>
+			<SelectTrigger aria-label={label} className={'w-40 transition-opacity'}>
+				<SelectValue />
+			</SelectTrigger>
+			<SelectContent>
+				<SelectGroup>
+					{items.map(({ value, label: itemLabel }) => {
+						return (
+							<SelectItem key={value} value={value}>
+								{itemLabel}
+							</SelectItem>
+						)
+					})}
+				</SelectGroup>
+			</SelectContent>
+		</Select>
 	)
 }

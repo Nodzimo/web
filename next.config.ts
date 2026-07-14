@@ -2,7 +2,7 @@ import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
-	allowedDevOrigins: ['172.16.0.1', '192.168.1.105'],
+	allowedDevOrigins: ['172.16.0.1', '172.18.0.1', '192.168.1.105'],
 	devIndicators: {
 		position: 'bottom-right',
 	},
