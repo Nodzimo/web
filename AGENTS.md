@@ -110,6 +110,13 @@ Root and locale layouts should preserve the Next layout contract, app CSS order,
 
 See [docs/agent-operating-charter/layouts-and-shell.md](docs/agent-operating-charter/layouts-and-shell.md).
 
+## Theme Management
+
+Theme management should preserve the `.dark` UI-kit contract, localized static rendering, the intentional hydration
+boundary, and the separate server/client package entrypoints.
+
+See [docs/agent-operating-charter/theme-management.md](docs/agent-operating-charter/theme-management.md).
+
 ## Next Rendering Model
 
 Next 16 rendering work must distinguish RSC, SSR, SSG/static output, dynamic rendering, Suspense streaming, and client
