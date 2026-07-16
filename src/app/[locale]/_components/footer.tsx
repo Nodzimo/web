@@ -4,6 +4,6 @@ export function Footer() {
 	const t = useTranslations('Footer')
 
 	return (
-		<footer className={'bg-emerald-100 p-2 text-center'}>{t('footer')}</footer>
+		<footer className={'bg-nui-card p-2 text-center'}>{t('footer')}</footer>
 	)
 }

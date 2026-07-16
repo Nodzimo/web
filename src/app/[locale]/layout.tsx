@@ -36,12 +36,12 @@ export default async function LocaleLayout({
 
 	return (
 		<html
-			className={`${fontVariables} nui-interactive nui-surface nui-boundaries h-full bg-fuchsia-500 antialiased`}
+			className={`${fontVariables} nui-interactive nui-surface nui-boundaries nui-links h-full antialiased`}
 			dir={locale === 'ar' ? 'rtl' : 'ltr'}
 			lang={locale}
 			suppressHydrationWarning
 		>
-			<body className={'flex min-h-full flex-col bg-lime-500'}>
+			<body className={'flex min-h-full flex-col'}>
 				<Providers messages={clientMessages}>
 					<Header />
 					<Main>{children}</Main>

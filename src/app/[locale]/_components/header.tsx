@@ -8,7 +8,7 @@ export function Header() {
 	return (
 		<header
 			className={
-				'sticky top-0 flex flex-wrap items-center justify-between gap-2 bg-sky-100 p-2'
+				'sticky top-0 flex flex-wrap items-center justify-between gap-2 bg-nui-card p-2'
 			}
 		>
 			{t('header')}

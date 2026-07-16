@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@nodzimo/ui/theme.css";
 
 /*noinspection CssUnresolvedCustomProperty*/
 @theme inline {
@@ -9,9 +10,5 @@
 @layer base {
 	body {
 		font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-	}
-
-	a {
-		text-decoration: underline red;
 	}
 }
