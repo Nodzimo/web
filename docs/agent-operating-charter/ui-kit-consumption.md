@@ -38,7 +38,12 @@
     - `@nodzimo/ui` for RSC-safe/core exports.
     - `@nodzimo/ui/client` for client-boundary exports.
     - `@nodzimo/ui/styles.css` for the compiled global stylesheet.
+    - `@nodzimo/ui/theme.css` for Tailwind compiler theme mappings in Tailwind consumers.
+- Keep the two CSS entrypoints separate. `styles.css` is browser-ready runtime CSS containing components, raw
+  `--nui-*` token values, animations, and opt-in foundation classes. `theme.css` is compiler input that teaches the
+  app's Tailwind build to generate consumer-authored utilities such as `bg-nui-card`, `ring-nui-ring`, variants, and
+  opacity forms; it is not a replacement runtime stylesheet.
 - Do not import from `@nodzimo/ui/src`, `@nodzimo/ui/dist`, or other deep internal paths.
 - If UI kit imports fail, first verify the installed package in `node_modules/@nodzimo/ui` contains the expected
-  built files and package `exports` entries for `"."`, `"./client"`, and `"./styles.css"` before changing app
-  architecture.
+  built files and package `exports` entries for `"."`, `"./client"`, `"./styles.css"`, and `"./theme.css"` before
+  changing app architecture.

@@ -37,7 +37,13 @@
   404-specific stylesheet.
 - Import the UI kit compiled stylesheet before this app's `./globals.css` so app-level globals, CSS variables, and
   overrides have the final cascade position.
+- In `globals.css`, import `tailwindcss` first and `@nodzimo/ui/theme.css` immediately afterward, before app-owned
+  `@theme` and layer rules. The package theme entrypoint gives this app's Tailwind compiler the complete `nui-*`
+  utility namespace; compiled `@nodzimo/ui/styles.css` alone cannot generate consumer-only classes or provide their
+  autocomplete.
 - Put global element defaults, such as `body` styles, inside `@layer base` so Tailwind utility classes can override them
   without `!important`.
-- Avoid broad global link styling unless it is intentionally a site-wide default; prefer component or route-level
-  Tailwind classes for specific link appearances.
+- Keep the localized `<html>` element as the opt-in NUI foundation scope with `nui-surface`, `nui-boundaries`,
+  `nui-interactive`, and `nui-links`. The link foundation intentionally styles descendant hyperlinks with the shared
+  NUI recipe; use `nui-link` for an isolated hyperlink outside that scope and local utilities for intentional
+  overrides. Do not duplicate the recipe in an unscoped global `a` rule or a consumer-owned React wrapper.
