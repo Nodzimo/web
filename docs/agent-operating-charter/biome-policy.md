@@ -19,17 +19,18 @@
   directives such as `@theme` as false positives.
 - Keep Tailwind utility class sorting enabled through Biome's `nursery.useSortedClasses` rule.
 - Keep duplicate class removal enabled through `assist.actions.source.noDuplicateClasses`; duplicated utility classes
-  are
-  copy/paste or merge noise and should be removed by Biome.
+  are copy/paste or merge noise and should be removed by Biome.
 - Keep attribute sorting enabled through `assist.actions.source.useSortedAttributes`.
 - Keep enum member sorting, interface member sorting, JSON object key sorting, and CSS property sorting enabled through
   source assist actions. These rules make ordering machine-owned and keep the web app aligned with the sibling UI kit.
 - Keep `assist.actions.source.useSortedPackageJson` disabled for now. The rule matches the desired convention, but in
-  this project and the sibling UI kit Biome 2.5.1 can hang during lint when it is enabled.
+  this project it conflicts with the enabled `useSortedKeys` action: `useSortedKeys` alphabetizes the root JSON keys,
+  while `useSortedPackageJson` applies the conventional semantic package field order. Each safe-fix pass undoes the
+  other action, so Biome 2.5.4 enters an endless fix cycle and IDE integrations such as WebStorm appear to hang. A
+  diagnostic-only check completes normally because it does not apply the conflicting fixes.
 - Keep `nursery.noUndeclaredClasses` and `nursery.noUnusedClasses` enabled here. Unlike the UI kit, this app owns its
-  CSS
-  usage surface, so class graph checks can catch stale selectors and misspelled class names without fighting a public
-  library stylesheet contract.
+  CSS usage surface, so class graph checks can catch stale selectors and misspelled class names without fighting a
+  public library stylesheet contract.
 - Keep `style.noUnusedTemplateLiteral` enabled to catch unnecessary template literals.
 - Do not add `files.includes` globs that duplicate `.gitignore` unless Biome needs a narrower project-specific scope.
 - Biome does not format Markdown in this setup. Format Markdown files manually or with the editor, and avoid assuming
