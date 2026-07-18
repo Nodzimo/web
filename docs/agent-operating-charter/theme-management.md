@@ -26,7 +26,45 @@ Upstream references:
 
 - [`@wrksz/themes` documentation](https://themes.wrksz.dev/)
 - [`@wrksz/themes` repository](https://github.com/jakubwarkusz/themes)
+- [shadcn/ui dark mode for Next.js](https://ui.shadcn.com/docs/dark-mode/next)
 - [Next.js preventing-flash guide](https://nextjs.org/docs/app/guides/preventing-flash-before-hydration)
+
+## shadcn/ui Reference And Provider Defaults
+
+The shadcn/ui Next.js dark-mode guide is the architectural reference because `@nodzimo/ui` follows the same class-based
+theming model as its upstream component patterns. Follow that contract without treating shadcn/ui's choice of
+`next-themes` or its local client wrapper as mandatory application architecture.
+
+The shadcn/ui wrapper exists to place the client-only `next-themes` provider behind a correct Client Component boundary
+and forward its props. This application does not need an equivalent wrapper: `@wrksz/themes/next` already supplies a
+Next-specific Server Component that inserts the pre-hydration script, while the route-local `Providers` component is
+already the application composition boundary.
+
+The intentionally bare `<ThemeProvider>` currently matches the relevant shadcn/ui configuration through the pinned
+`@wrksz/themes` defaults:
+
+| Behavior                                       | shadcn/ui example           | `@wrksz/themes` default                   | Application decision     |
+|------------------------------------------------|-----------------------------|-------------------------------------------|--------------------------|
+| Apply the resolved theme through a class       | `attribute="class"`         | `attribute="class"`                       | Rely on the default      |
+| Start from the operating-system preference     | `defaultTheme="system"`     | `"system"` when system support is enabled | Rely on the default      |
+| Listen to the operating-system preference      | `enableSystem`              | `enableSystem={true}`                     | Rely on the default      |
+| Suppress CSS transitions during a theme change | `disableTransitionOnChange` | `disableTransitionOnChange={false}`       | Keep transitions enabled |
+
+Do not repeat matching defaults as local props merely to mirror the shadcn/ui snippet. The exact dependency pin makes
+the current defaults stable, and omitting redundant configuration keeps the provider focused on application-specific
+behavior. When updating `@wrksz/themes`, compare these defaults with the new version before accepting the update.
+
+`disableTransitionOnChange` does not add an animation and is unrelated to hydration or first-paint theme selection. When
+enabled, it temporarily applies the equivalent of
+`*, *::before, *::after { transition: none !important; }` while the theme class changes, then removes that override
+after two animation frames. It affects only elements that already define a CSS transition. For example, a surface with
+`transition: background-color 300ms` gradually changes from its light color to its dark color when the option is off and
+changes immediately when the option is on.
+
+The current application has no unwanted full-page color, border, shadow, or icon interpolation during theme changes, so
+disabling every transition would provide no visible benefit and could suppress intentional component motion during the
+switch. Reconsider the option if future styling makes theme changes visibly lag, ripple through the page, or pass
+through distracting intermediate colors.
 
 ## Layout And Provider Placement
 
@@ -40,8 +78,8 @@ Upstream references:
   must not be marked `'use client'`.
 - Import interactive hooks such as `useTheme` from `@wrksz/themes/client` only inside Client Components such as the
   theme toggle.
-- The standalone root 404 is currently outside the theme provider and is intentionally not part of the themed
-  localized shell. Do not place a provider outside its full `<html>` document merely to theme that fallback.
+- The standalone root 404 is currently outside the theme provider and is intentionally not part of the themed localized
+  shell. Do not place a provider outside its full `<html>` document merely to theme that fallback.
 
 The intended composition is:
 
@@ -80,8 +118,8 @@ difference; it should not be moved to broad descendants or used to hide unrelate
 ## Toggle Behavior
 
 - The initial default is `system`; `resolvedTheme` reports whether that currently resolves to `light` or `dark`.
-- The first implementation toggles explicit `light` and `dark` values. After the user clicks it, the saved preference
-  no longer follows the operating system.
+- The first implementation toggles explicit `light` and `dark` values. After the user clicks it, the saved preference no
+  longer follows the operating system.
 - A future three-way selector should call `setTheme('light')`, `setTheme('dark')`, or `setTheme('system')` and localize
   the labels through next-intl. Keep the stored identifiers untranslated.
 - Avoid rendering theme-dependent labels or imagery from an unresolved theme during SSR. Use a mounted-safe control or
