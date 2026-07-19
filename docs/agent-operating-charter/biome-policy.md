@@ -23,11 +23,14 @@
 - Keep attribute sorting enabled through `assist.actions.source.useSortedAttributes`.
 - Keep enum member sorting, interface member sorting, JSON object key sorting, and CSS property sorting enabled through
   source assist actions. These rules make ordering machine-owned and keep the web app aligned with the sibling UI kit.
-- Keep `assist.actions.source.useSortedPackageJson` disabled for now. The rule matches the desired convention, but in
-  this project it conflicts with the enabled `useSortedKeys` action: `useSortedKeys` alphabetizes the root JSON keys,
-  while `useSortedPackageJson` applies the conventional semantic package field order. Each safe-fix pass undoes the
-  other action, so Biome 2.5.4 enters an endless fix cycle and IDE integrations such as WebStorm appear to hang. A
-  diagnostic-only check completes normally because it does not apply the conflicting fixes.
+- Keep `assist.actions.source.useSortedPackageJson` enabled so the root manifest follows Biome's conventional semantic
+  [package field order](https://biomejs.dev/assist/actions/use-sorted-package-json/). The generic `useSortedKeys` action
+  must remain disabled only for `package.json` through the scoped override: the two actions request different root-key
+  orders, so their safe fixes undo each other and a write pass can loop indefinitely. Biome maintainers treat this
+  overlap as a configuration responsibility and recommend the scoped override documented in
+  [Biome issue #10628](https://github.com/biomejs/biome/issues/10628); the same hang is reproduced in
+  [Biome issue #10783](https://github.com/biomejs/biome/issues/10783). After changing either action or upgrading Biome,
+  run the write check twice and confirm that the second pass is unchanged.
 - Keep `nursery.noUndeclaredClasses` and `nursery.noUnusedClasses` enabled here. Unlike the UI kit, this app owns its
   CSS usage surface, so class graph checks can catch stale selectors and misspelled class names without fighting a
   public library stylesheet contract.
