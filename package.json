@@ -1,39 +1,30 @@
 {
-	"author": {
-		"email": "Sefo@Nodzimo.com",
-		"name": "Sefo Nodzimo",
-		"url": "https://Nodzimo.com"
-	},
-	"bugs": {
-		"email": "Sefo@Nodzimo.com",
-		"url": "https://github.com/Nodzimo/web/issues"
-	},
-	"dependencies": {
-		"@nodzimo/ui": "0.0.15",
-		"@wrksz/themes": "1.0.0",
-		"clsx": "2.1.1",
-		"next": "16.2.10",
-		"next-intl": "4.13.2",
-		"react": "19.2.7",
-		"react-dom": "19.2.7"
-	},
+	"name": "web",
+	"version": "0.0.3",
+	"private": true,
 	"description": "Sefo Nodzimo Web",
-	"devDependencies": {
-		"@biomejs/biome": "2.5.4",
-		"@lingual/i18n-check": "0.9.5",
-		"@tailwindcss/postcss": "4.3.3",
-		"@types/node": "26.1.1",
-		"@types/react": "19.2.17",
-		"@types/react-dom": "19.2.3",
-		"babel-plugin-react-compiler": "1.0.0",
-		"dependency-cruiser": "18.1.0",
-		"fkill-cli": "9.0.0",
-		"tailwindcss": "4.3.3",
-		"typescript": "6.0.3"
+	"keywords": [
+		"Sefo",
+		"Nodzimo",
+		"Web",
+		"Website",
+		"Internationalization",
+		"Next.js",
+		"React",
+		"TypeScript",
+		"Tailwind",
+		"RTL",
+		"AI-ready",
+		"Agent-ready"
+	],
+	"homepage": "https://Nodzimo.com",
+	"bugs": {
+		"url": "https://github.com/Nodzimo/web/issues",
+		"email": "Sefo@Nodzimo.com"
 	},
-	"engines": {
-		"bun": "1.3.x",
-		"node": "26.x"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Nodzimo/web.git"
 	},
 	"funding": [
 		{
@@ -53,31 +44,11 @@
 			"url": "https://ko-fi.com/Nodzimo"
 		}
 	],
-	"homepage": "https://Nodzimo.com",
-	"ignoreScripts": [
-		"sharp",
-		"unrs-resolver"
-	],
-	"keywords": [
-		"Sefo",
-		"Nodzimo",
-		"Web",
-		"Website",
-		"Internationalization",
-		"Next.js",
-		"React",
-		"TypeScript",
-		"Tailwind",
-		"RTL",
-		"AI-ready",
-		"Agent-ready"
-	],
 	"license": "MIT",
-	"name": "web",
-	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Nodzimo/web.git"
+	"author": {
+		"name": "Sefo Nodzimo",
+		"email": "Sefo@Nodzimo.com",
+		"url": "https://Nodzimo.com"
 	},
 	"scripts": {
 		"analyze": "next experimental-analyze",
@@ -127,9 +98,38 @@
 		"ui-kit:reinstall": "bun run ui-kit:remove && bun run ui-kit:add",
 		"ui-kit:remove": "bun remove @nodzimo/ui"
 	},
-	"trustedDependencies": [
+	"dependencies": {
+		"@nodzimo/ui": "0.0.15",
+		"@wrksz/themes": "1.0.0",
+		"clsx": "2.1.1",
+		"next": "16.2.10",
+		"next-intl": "4.13.2",
+		"react": "19.2.7",
+		"react-dom": "19.2.7"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.4",
+		"@lingual/i18n-check": "0.9.5",
+		"@tailwindcss/postcss": "4.3.3",
+		"@types/node": "26.1.1",
+		"@types/react": "19.2.17",
+		"@types/react-dom": "19.2.3",
+		"babel-plugin-react-compiler": "1.0.0",
+		"dependency-cruiser": "18.1.0",
+		"fkill-cli": "9.0.0",
+		"tailwindcss": "4.3.3",
+		"typescript": "6.0.3"
+	},
+	"engines": {
+		"bun": "1.3.x",
+		"node": "26.x"
+	},
+	"ignoreScripts": [
 		"sharp",
 		"unrs-resolver"
 	],
-	"version": "0.0.3"
+	"trustedDependencies": [
+		"sharp",
+		"unrs-resolver"
+	]
 }
