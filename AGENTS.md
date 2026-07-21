@@ -15,16 +15,15 @@ scope first, read in layers, use broad context deliberately, verify narrowly, an
 
 ## Stack
 
-This project is a Bun-based Next.js 16 App Router consumer of `@nodzimo/ui`, with React 19, TypeScript strict
-mode,
+This project is a Bun-based Next.js 16 App Router consumer of `@nodzimo/ui`, with React 19, TypeScript strict mode,
 Tailwind CSS 4, Biome, and next-intl.
 
 See [docs/agent-operating-charter/stack.md](docs/agent-operating-charter/stack.md).
 
 ## UI Kit Consumption
 
-`@nodzimo/ui` is consumed from the public package surface for production and through packed sibling-project
-tarballs for local unpublished UI-kit testing.
+`@nodzimo/ui` is consumed from the public package surface for production and through packed sibling-project tarballs for
+local unpublished UI-kit testing.
 
 See [docs/agent-operating-charter/ui-kit-consumption.md](docs/agent-operating-charter/ui-kit-consumption.md).
 
@@ -40,6 +39,11 @@ See [docs/agent-operating-charter/collaboration.md](docs/agent-operating-charter
 Propose requested commit messages in English using Conventional Commits 1.0.0. Apply Semantic Versioning 2.0.0 and
 English Keep a Changelog 1.1.0 only when version or changelog work is explicitly in scope; do not introduce either by
 default.
+
+## Backlog
+
+Unresolved repository work is tracked as focused records under [backlog](backlog/README.md). Read the backlog contract
+only when capturing, triaging, planning, or executing backlog work; do not load the backlog for unrelated tasks.
 
 ## Code Style Conventions
 
