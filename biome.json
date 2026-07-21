@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.5.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.5/schema.json",
 	"assist": {
 		"actions": {
 			"source": {
@@ -42,6 +42,7 @@
 		},
 		"rules": {
 			"nursery": {
+				"noNegationInEqualityCheck": "error",
 				"noUndeclaredClasses": "error",
 				"noUnusedClasses": "error",
 				"useSortedClasses": {
@@ -58,7 +59,9 @@
 		{
 			"assist": {
 				"actions": {
-					"source": { "useSortedKeys": "off" }
+					"source": {
+						"useSortedKeys": "off"
+					}
 				}
 			},
 			"includes": ["package.json"]
