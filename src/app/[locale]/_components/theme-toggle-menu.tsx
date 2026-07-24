@@ -47,7 +47,7 @@ export function ThemeToggleMenu({ items, label }: Props) {
 				/>
 				<span className={'sr-only'}>{label}</span>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align={'end'}>
+			<DropdownMenuContent align={'end'} className={'w-auto'}>
 				<DropdownMenuRadioGroup
 					onValueChange={onThemeSelectionChange}
 					value={theme}
