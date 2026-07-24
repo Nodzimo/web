@@ -38,5 +38,11 @@
 		"testError": "Тестова помилка",
 		"throwErrorButton": "Викинути помилку",
 		"title": "Тест"
+	},
+	"ThemeToggle": {
+		"dark": "Темна",
+		"label": "Змінити тему",
+		"light": "Світла",
+		"system": "Системна"
 	}
 }

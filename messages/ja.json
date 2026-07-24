@@ -38,5 +38,11 @@
 		"testError": "テストエラー",
 		"throwErrorButton": "エラーを発生させる",
 		"title": "テスト"
+	},
+	"ThemeToggle": {
+		"dark": "ダーク",
+		"label": "テーマを変更",
+		"light": "ライト",
+		"system": "システム"
 	}
 }

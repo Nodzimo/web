@@ -38,5 +38,11 @@
 		"testError": "Error de prueba",
 		"throwErrorButton": "Lanzar error",
 		"title": "Prueba"
+	},
+	"ThemeToggle": {
+		"dark": "Oscuro",
+		"label": "Cambiar tema",
+		"light": "Claro",
+		"system": "Sistema"
 	}
 }

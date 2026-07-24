@@ -38,5 +38,11 @@
 		"testError": "Testfehler",
 		"throwErrorButton": "Fehler auslösen",
 		"title": "Test"
+	},
+	"ThemeToggle": {
+		"dark": "Dunkel",
+		"label": "Design ändern",
+		"light": "Hell",
+		"system": "System"
 	}
 }

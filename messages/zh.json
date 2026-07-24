@@ -38,5 +38,11 @@
 		"testError": "测试错误",
 		"throwErrorButton": "抛出错误",
 		"title": "测试"
+	},
+	"ThemeToggle": {
+		"dark": "深色",
+		"label": "更改主题",
+		"light": "浅色",
+		"system": "跟随系统"
 	}
 }

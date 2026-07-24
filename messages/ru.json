@@ -38,5 +38,11 @@
 		"testError": "Отладочная ошибка",
 		"throwErrorButton": "Вызвать ошибку",
 		"title": "Тест"
+	},
+	"ThemeToggle": {
+		"dark": "Тёмная",
+		"label": "Изменить тему",
+		"light": "Светлая",
+		"system": "Системная"
 	}
 }

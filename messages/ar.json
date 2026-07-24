@@ -38,5 +38,11 @@
 		"testError": "خطأ اختباري",
 		"throwErrorButton": "إظهار خطأ",
 		"title": "اختبار"
+	},
+	"ThemeToggle": {
+		"dark": "داكن",
+		"label": "تغيير السمة",
+		"light": "فاتح",
+		"system": "النظام"
 	}
 }

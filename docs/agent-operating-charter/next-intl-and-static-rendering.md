@@ -9,6 +9,12 @@
 - Do not export both `metadata` and `generateMetadata` from the same route segment.
 - In pages/layout children that receive params, call `useStaticLocale(params)` or the async helper before server
   `next-intl` APIs when static rendering matters.
+- Prefer translating interactive UI in a Server Component wrapper and passing the resulting labels and option data as
+  serializable props to a narrow Client Component. Follow the route-local `LocaleSwitcher` / `LocaleSwitcherSelect`
+  split as the reference pattern.
+- Do not add a leaf component's message namespace to the route-wide `NextIntlClientProvider` when its messages can be
+  resolved by a Server Component wrapper. Provide client-side messages only when the translation genuinely depends on
+  client-only state and cannot be prepared on the server.
 - Keep the generated sitemap at `src/app/sitemap.ts`. Build localized sitemap URLs through `getPathname` from
   `src/i18n/navigation` and `routing.locales`; do not hand-build locale prefixes.
 - With locale-prefix routing, default-locale sitemap URLs such as `/en` are expected. The root `/` is an entry point for
