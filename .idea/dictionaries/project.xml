@@ -19,6 +19,7 @@
       <w>depcruise</w>
       <w>entrypoints</w>
       <w>fkill</w>
+      <w>intl's</w>
       <w>latin</w>
       <w>lockfiles</w>
       <w>nextjs</w>
@@ -26,8 +27,10 @@
       <w>ortho</w>
       <w>pathlib</w>
       <w>pathnames</w>
+      <w>prerendered</w>
       <w>returncode</w>
       <w>shadcn</w>
+      <w>shadcn's</w>
       <w>trpc</w>
       <w>typegen</w>
       <w>unrs</w>

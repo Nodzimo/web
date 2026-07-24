@@ -115,15 +115,132 @@ difference; it should not be moved to broad descendants or used to hide unrelate
 - Do not add a parallel `prefers-color-scheme` CSS fallback for the same theme tokens. It can disagree with an explicit
   stored preference while the provider already resolves `system` before paint.
 
-## Toggle Behavior
+## Three-Way Selector Reference
 
-- The initial default is `system`; `resolvedTheme` reports whether that currently resolves to `light` or `dark`.
-- The first implementation toggles explicit `light` and `dark` values. After the user clicks it, the saved preference no
-  longer follows the operating system.
-- A future three-way selector should call `setTheme('light')`, `setTheme('dark')`, or `setTheme('system')` and localize
-  the labels through next-intl. Keep the stored identifiers untranslated.
-- Avoid rendering theme-dependent labels or imagery from an unresolved theme during SSR. Use a mounted-safe control or
-  the library's theme-aware helpers when the visible output itself differs by theme.
+The route-local `ThemeToggle` / `ThemeToggleMenu` pair is the reference implementation for a small localized interactive
+control. It follows the same server-wrapper/client-leaf architecture as
+`LocaleSwitcher` / `LocaleSwitcherSelect`, with a component-specific item contract because theme options also carry
+icons.
+
+### Server And Client Boundary
+
+- Keep `ThemeToggle` as a Server Component. Resolve `ThemeToggle` messages there with `useTranslations`, construct the
+  localized items, and pass only the trigger label and item data to the client boundary.
+- Keep the whole interactive dropdown in `ThemeToggleMenu`. Base UI menu primitives and `useTheme` are client concerns;
+  splitting only the hook into a deeper client wrapper would add an RSC slot boundary without removing the dropdown
+  primitives from the client bundle.
+- Do not add `ThemeToggle` messages to the route-wide `NextIntlClientProvider` and do not pass a raw message namespace
+  to the client. next-intl's preferred approach is to process translations in a Server Component and pass translated
+  labels through props or `children`.
+- Client Components do not make the localized route dynamic. The selector uses no request-time API, so the route remains
+  eligible for SSG and the interactive dropdown is prerendered to HTML before hydration.
+
+The item boundary is intentionally small:
+
+```tsx
+export type ThemeToggleItem = {
+    icon: ReactElement
+    label: string
+    value: ThemeSelection
+}
+```
+
+Construct `ThemeToggleItem[]` directly in the server wrapper. A ready React element such as `<SunIcon />` can cross the
+RSC boundary as renderable data; a component function such as `SunIcon` is not an ordinary serializable prop. Importing
+`ThemeToggleItem` with `import type` does not extend the client module graph because the import is erased during
+compilation.
+
+Do not reuse `SelectOptions` merely because both contracts contain `label` and `value`. `SelectOptions` belongs to the
+Select API and represents homogeneous select data. `ThemeToggleItem` belongs to this domain control and additionally
+requires a rendered icon. Promote a generic dropdown option type to `@nodzimo/ui` only after multiple real consumers
+share the same data contract.
+
+The explicit annotation is sufficient:
+
+```tsx
+const themeItems: ThemeToggleItem[] = [
+    // Localized items
+]
+```
+
+Do not add `as const` or `satisfies` when no literal union is derived from this render-local array. The annotation
+already validates every item, and the translated labels are runtime strings.
+
+### Selection Semantics
+
+- Use `DropdownMenuRadioGroup` because `light`, `dark`, and `system` are mutually exclusive values of one persisted
+  setting. Ordinary menu items can perform the same assignments, but they do not expose the saved selection.
+- Bind the radio group to `theme`, not `resolvedTheme`. `theme` preserves whether the user selected `system`;
+  `resolvedTheme` only reports whether that setting currently resolves to `light` or `dark`.
+- Keep the trigger visual tied to the resolved `.dark` class, so it shows the effective sun or moon. The radio indicator
+  separately communicates that `system` is the saved setting and removes the ambiguity of a system choice immediately
+  returning to a sun or moon icon.
+- Base UI radio items remain open after selection by default. Add `closeOnClick` to each radio item when the product
+  should close the menu after one choice; omit it when keeping the three choices visible is intentional. This differs
+  from ordinary action items and should be a deliberate UX decision.
+- Keep the internal values `system`, `light`, and `dark` untranslated and pass the selected `ThemeSelection` directly to
+  `setTheme`.
+
+### Base UI Composition And Trigger Motion
+
+- The shadcn dark-mode example uses Radix composition with `asChild`. `@nodzimo/ui` is based on Base UI, so compose the
+  trigger with `render={<Button ... />}` instead. Treat the shadcn example as a behavioral and styling reference, not as
+  a drop-in API reference.
+- Keep `align="end"` so the menu's inline end follows the header-edge trigger and the popup grows inward. The Nodzimo UI
+  wrapper defaults to `start`.
+- Render both `SunIcon` and `MoonIcon` in the trigger. The light icon starts at normal rotation and scale while the dark
+  icon starts rotated, scaled to zero, and absolutely overlaid. The `dark:*` classes swap those states and
+  `transition-all` interpolates the transform.
+- The absolute dark icon intentionally occupies no additional layout space; both icons share the same visual center.
+  These transform and transition utilities are built into Tailwind and do not require `tw-animate-css`.
+- Do not copy shadcn's `h-[1.2rem] w-[1.2rem]` sizing automatically. Nodzimo UI gives both Button child icons and
+  dropdown item icons the shared `size-4` default, while `Button size="icon"` and the default Select trigger both use a
+  32-pixel control height. Keeping the defaults preserves header and menu icon consistency.
+
+### Localized Popup Width
+
+Nodzimo UI's Base UI dropdown content defaults to the anchor width with a 128-pixel minimum:
+
+```text
+w-(--anchor-width) min-w-32
+```
+
+This width is styling from the shadcn-derived wrapper, not behavior imposed by the unstyled Base UI primitive. The
+Radix-based theme-toggle reference and the Base UI dropdown wrapper therefore do not share the same popup-sizing
+contract.
+
+That default is useful when a menu should track a text trigger, but an icon-only trigger is only 32 pixels wide and
+therefore leaves the popup fixed at the 128-pixel minimum. A radio item with a leading icon, a long unbroken localized
+label, and an absolutely positioned trailing indicator can then exhaust the available inline space and visually overlap
+the indicator.
+
+For this composition, override the popup through its supported consumer styling surface:
+
+```text
+<DropdownMenuContent align={'end'} className={'w-auto'}>
+```
+
+`mcn` resolves the conflicting width utilities, `min-w-32` remains in force, and the popup can grow with translated
+content. This is a component-specific composition override, not a translation fix or a reason to change the global
+Dropdown Menu default. Revisit the UI-kit default only if multiple independent consumers demonstrate that content-sized
+menus should be the shared contract.
+
+### Naming
+
+Keep these names as the local reference:
+
+- `ThemeToggle`: server translation and item assembly;
+- `ThemeToggleMenu`: client interaction and dropdown rendering;
+- `ThemeToggleItem`: one server/client boundary item contract;
+- `themeItems`: the server-created collection;
+- `onThemeSelectionChange`: the radio-group handler.
+
+References:
+
+- [next-intl: passing translated labels to Client Components](https://next-intl.dev/docs/environments/server-client-components#option-1-passing-translated-labels-to-client-components)
+- [Next.js: interleaving Server and Client Components](https://nextjs.org/docs/app/getting-started/server-and-client-components#interleaving-server-and-client-components)
+- [shadcn/ui Base UI Dropdown Menu](https://ui.shadcn.com/docs/components/base/dropdown-menu)
+- [Base UI Menu, including radio items and `closeOnClick`](https://base-ui.com/react/components/menu#close-on-click)
 
 ## Verification
 
@@ -134,4 +251,7 @@ After provider, layout, storage, or theme dependency changes:
 - test a hard refresh with saved light and dark preferences;
 - test the default system preference and a live operating-system theme change;
 - test synchronization between two tabs when using `localStorage`;
+- test the selector in English and the longest supported localized labels, including RTL;
+- confirm the saved `system` value remains selected while the trigger follows the effective light/dark class;
+- confirm the popup grows without label/indicator overlap and stays aligned to the header edge;
 - confirm there is no first-paint flash or hydration warning in a production build.
