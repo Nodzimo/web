@@ -23,8 +23,18 @@
 - Client Components start at a `'use client'` boundary. Use them only for state, effects, event handlers, browser APIs,
   custom client hooks, and third-party widgets that are not RSC-safe. Keep the boundary as deep and narrow as possible.
 - A Server Component may render a Client Component. The route can still remain static/SSG if it does not use
-  request-time
-  APIs or uncached runtime data.
+  request-time APIs or uncached runtime data.
+- React-serializable props are broader than plain JSON. A Server Component may instantiate an RSC-safe component and
+  pass the resulting React element or rendered node to a Client Component through `children` or another renderable prop.
+  The client receives rendered output through the RSC payload; this does not pull the source component into the client
+  module graph or make the route dynamic.
+- Distinguish a component reference such as `FlagIcon: ComponentType<...>` from an already-created element such as
+  `icon: <FlagIcon />`. Do not pass an ordinary component function across the RSC boundary. When the server owns
+  localized option data and the client only needs to display the icon, instantiate it on the server and type the field
+  as `ReactElement`.
+- Do not introduce a second client-side locale-to-icon mapping solely to avoid passing rendered elements. Keep one
+  server-owned option model when the relevant icon entrypoint is RSC-safe and the Client Component only renders the
+  prepared nodes.
 - Static/SSG output means the route was pre-rendered at build time. It is the expected default for this small localized
   site and gives fast HTML, cacheable output, and less runtime server work.
 - Dynamic rendering is for route output that must depend on request-time data such as `headers()`, `cookies()`,

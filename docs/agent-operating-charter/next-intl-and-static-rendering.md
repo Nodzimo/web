@@ -11,7 +11,7 @@
   `next-intl` APIs when static rendering matters.
 - Prefer translating interactive UI in a Server Component wrapper and passing the resulting labels and option data as
   serializable props to a narrow Client Component. Follow the route-local `LocaleSwitcher` / `LocaleSwitcherSelect`
-  split as the reference pattern.
+  split and the detailed boundary below as the reference pattern.
 - Do not add a leaf component's message namespace to the route-wide `NextIntlClientProvider` when its messages can be
   resolved by a Server Component wrapper. Provide client-side messages only when the translation genuinely depends on
   client-only state and cannot be prepared on the server.
@@ -36,3 +36,31 @@
 - If root `not-found.tsx` needs its own `<title>` or description, write a small `<head>` in that full-document fallback.
   Do not rely on `metadata` exports from `not-found.tsx`; Next documents metadata support for `global-not-found.tsx`,
   layouts, and pages, not ordinary `not-found.tsx`.
+
+## Locale Switcher Boundary
+
+- Treat `src/app/[locale]/_components/locale-switcher.tsx` and `locale-switcher-select.tsx` as the reference
+  server/client split for localized interactive controls. The Server Component owns translations and prepared product
+  data; the Client Component owns navigation, transitions, and the interactive Select.
+- Import RSC-safe flag icons from `@nodzimo/ui` in the Server Component, instantiate them there, and store each prepared
+  icon as `ReactElement` beside its translated label and `Locale` value. Passing these ready elements through grouped
+  props is supported RSC composition and avoids duplicating a locale-to-icon mapping in the client.
+- Extend `SelectOption<Locale>` locally as `LocaleSwitcherOption` for rich option metadata. Keep that option type
+  internal to the client module; export `LocaleSwitcherGroup` because the Server Component uses it to validate the
+  prepared group contract.
+- Keep the naming distinction deliberate: an option is a data object, `items` is the collection/lookup vocabulary used
+  by the Select API, and `SelectItem` is the rendered compound component.
+- Keep the ordered `groups` array as the single product-data source. The client's `flatMap` is a derived flat view used
+  by the Select `items` lookup and custom selected-value rendering; it is not a second option model. Render popup groups
+  from the original nested data.
+- When mapping groups, use a keyed `Fragment` to return the separator and group without introducing an extra DOM wrapper
+  into the compound Select content. Render `SelectSeparator` before every group except the first so separators appear
+  only between groups.
+- The locale selector is controlled by a valid `Locale` and has no placeholder option, so narrow the `SelectValue`
+  render value to `Locale`, not `Locale | null`. Retain the missing-result guard after `find()` because TypeScript
+  correctly returns `undefined`; rendering `null` is sufficient and should not become a localized error flow.
+- Keep a named `onValueChange` parameter as `Locale | null` and guard `null` because that is the external Base UI
+  single-select callback contract, even though the current product UI does not expose a clearable state.
+- Preserve the localized `aria-label` on the visually unlabeled trigger. For flag-bearing rows use
+  `className={'*:items-center'}` on `SelectItem`; let the custom selected-value wrapper own its
+  `flex items-center gap-2` composition.

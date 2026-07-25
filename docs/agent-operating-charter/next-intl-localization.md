@@ -11,8 +11,16 @@
     - `ar`: Modern Standard Arabic for broad Arabic UI use.
     - `zh`: Simplified Chinese with Mainland-style UI wording.
     - `ja`: natural Japanese UI wording, concise and not overly literal.
-- Preserve this order everywhere users see or route through locales: `en`, `ru`, `be`, `uk`, `de`, `fr`, `it`, `es`,
+- Preserve this base order in routing and non-grouped locale surfaces: `en`, `ru`, `be`, `uk`, `de`, `fr`, `it`, `es`,
   `ar`, `zh`, `ja`.
+- The grouped locale switcher is the intentional user-visible exception. Preserve the exact UI-kit grouping, headings,
+  and sequence:
+    - `Western European`: `en`, `de`, `fr`, `it`, `es`.
+    - `East Slavic`: `ru`, `be`, `uk`.
+    - `Middle Eastern`: `ar`.
+    - `East Asian`: `zh`, `ja`.
+- Treat those English headings as the canonical message source and localize the headings naturally in every supported
+  locale. Do not flatten or reorder the selector to match the routing list.
 - Do not invent dialect-specific Arabic, Traditional Chinese, regional Japanese variants, or alternate European regional
   variants unless the user explicitly asks.
 - Preserve ICU expressions exactly:
