@@ -8,12 +8,14 @@ export function Header() {
 	return (
 		<header
 			className={
-				'sticky top-0 flex flex-wrap items-center justify-between gap-2 bg-nui-card p-2'
+				'sticky top-0 flex items-center justify-between gap-2 bg-nui-card p-2'
 			}
 		>
 			{t('header')}
-			<LocaleSwitcher />
-			<ThemeToggle />
+			<div className={'flex gap-2'}>
+				<LocaleSwitcher />
+				<ThemeToggle />
+			</div>
 		</header>
 	)
 }
