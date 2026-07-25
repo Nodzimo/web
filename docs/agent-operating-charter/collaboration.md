@@ -2,7 +2,9 @@
 
 - If the user asks an architecture or best-practice question, answer first and do not edit files unless explicitly
   asked.
-- If the user asks to implement, keep changes scoped and verify with the smallest relevant checks.
+- If the user asks to implement, keep changes scoped. Treat verification as separate authorization: do not run builds,
+  tests, linters, type checks, Playwright, browsers, or MCP-based UI control unless the user explicitly requests
+  verification for the current task. Read-only source and diff inspection remain allowed.
 - Preserve the existing Russian conversational tone in user-facing discussion, but keep committed code and comments
   concise.
 - Do not add broad abstractions just to reduce line count. Extract code when it creates a clear route-local component,
