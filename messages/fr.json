@@ -18,6 +18,12 @@
 		"title": "Bonjour, le monde !"
 	},
 	"LocaleSwitcher": {
+		"groups": {
+			"eastAsian": "Asie de l’Est",
+			"eastSlavic": "Slaves orientales",
+			"middleEastern": "Moyen-Orient",
+			"westernEuropean": "Europe occidentale"
+		},
 		"label": "Changer de langue",
 		"locale": "{locale, select, en {Anglais} ru {Russe} be {Biélorusse} uk {Ukrainien} de {Allemand} fr {Français} it {Italien} es {Espagnol} ar {Arabe} zh {Chinois} ja {Japonais} other {Inconnu}}"
 	},

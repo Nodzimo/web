@@ -18,6 +18,12 @@
 		"title": "¡Hola, mundo!"
 	},
 	"LocaleSwitcher": {
+		"groups": {
+			"eastAsian": "Asia oriental",
+			"eastSlavic": "Eslavas orientales",
+			"middleEastern": "Oriente Medio",
+			"westernEuropean": "Europa occidental"
+		},
 		"label": "Cambiar idioma",
 		"locale": "{locale, select, en {Inglés} ru {Ruso} be {Bielorruso} uk {Ucraniano} de {Alemán} fr {Francés} it {Italiano} es {Español} ar {Árabe} zh {Chino} ja {Japonés} other {Desconocido}}"
 	},

@@ -18,6 +18,12 @@
 		"title": "こんにちは、世界！"
 	},
 	"LocaleSwitcher": {
+		"groups": {
+			"eastAsian": "東アジア",
+			"eastSlavic": "東スラブ",
+			"middleEastern": "中東",
+			"westernEuropean": "西ヨーロッパ"
+		},
 		"label": "言語を変更",
 		"locale": "{locale, select, en {英語} ru {ロシア語} be {ベラルーシ語} uk {ウクライナ語} de {ドイツ語} fr {フランス語} it {イタリア語} es {スペイン語} ar {アラビア語} zh {中国語} ja {日本語} other {不明}}"
 	},

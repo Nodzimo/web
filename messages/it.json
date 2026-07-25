@@ -18,6 +18,12 @@
 		"title": "Ciao, mondo!"
 	},
 	"LocaleSwitcher": {
+		"groups": {
+			"eastAsian": "Asia orientale",
+			"eastSlavic": "Slave orientali",
+			"middleEastern": "Medio Oriente",
+			"westernEuropean": "Europa occidentale"
+		},
 		"label": "Cambia lingua",
 		"locale": "{locale, select, en {Inglese} ru {Russo} be {Bielorusso} uk {Ucraino} de {Tedesco} fr {Francese} it {Italiano} es {Spagnolo} ar {Arabo} zh {Cinese} ja {Giapponese} other {Sconosciuto}}"
 	},

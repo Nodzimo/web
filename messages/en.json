@@ -18,6 +18,12 @@
 		"title": "Hello, World!"
 	},
 	"LocaleSwitcher": {
+		"groups": {
+			"eastAsian": "East Asian",
+			"eastSlavic": "East Slavic",
+			"middleEastern": "Middle Eastern",
+			"westernEuropean": "Western European"
+		},
 		"label": "Change language",
 		"locale": "{locale, select, en {English} ru {Russian} be {Belarusian} uk {Ukrainian} de {German} fr {French} it {Italian} es {Spanish} ar {Arabic} zh {Chinese} ja {Japanese} other {Unknown}}"
 	},

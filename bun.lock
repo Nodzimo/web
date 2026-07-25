@@ -5,7 +5,7 @@
     "": {
       "name": "web",
       "dependencies": {
-        "@nodzimo/ui": "0.0.16",
+        "@nodzimo/ui": "0.0.17",
         "@wrksz/themes": "1.0.0",
         "clsx": "2.1.1",
         "next": "16.2.11",
@@ -206,7 +206,7 @@
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
-    "@nodzimo/ui": ["@nodzimo/ui@0.0.16", "", { "dependencies": { "@base-ui/react": "1.6.0", "class-variance-authority": "0.7.1", "clsx": "2.1.1", "tailwind-merge": "3.6.0" }, "peerDependencies": { "react": "19.x", "react-dom": "19.x" } }, "sha512-tfueBYv2UwVtEB8vGmUyq52lYa/Pb7NBwGBw8iKY/SqW+AAaIukLFJmSCbbF5qclu5Im1v8YD3sS0j07m1sWuw=="],
+    "@nodzimo/ui": ["@nodzimo/ui@0.0.17", "", { "dependencies": { "@base-ui/react": "1.6.0", "class-variance-authority": "0.7.1", "clsx": "2.1.1", "tailwind-merge": "3.6.0" }, "peerDependencies": { "react": "19.x", "react-dom": "19.x" } }, "sha512-1ZvdPbVWRFihttOlmn1NzMaEIEdtQCk8xVmoehL4snM7IqWr5j9ZiOe579RU7EluogMf5OqaHpgX9wnxUvqlGg=="],
 
     "@parcel/watcher": ["@parcel/watcher@2.5.6", "", { "dependencies": { "detect-libc": "^2.0.3", "is-glob": "^4.0.3", "node-addon-api": "^7.0.0", "picomatch": "^4.0.3" }, "optionalDependencies": { "@parcel/watcher-android-arm64": "2.5.6", "@parcel/watcher-darwin-arm64": "2.5.6", "@parcel/watcher-darwin-x64": "2.5.6", "@parcel/watcher-freebsd-x64": "2.5.6", "@parcel/watcher-linux-arm-glibc": "2.5.6", "@parcel/watcher-linux-arm-musl": "2.5.6", "@parcel/watcher-linux-arm64-glibc": "2.5.6", "@parcel/watcher-linux-arm64-musl": "2.5.6", "@parcel/watcher-linux-x64-glibc": "2.5.6", "@parcel/watcher-linux-x64-musl": "2.5.6", "@parcel/watcher-win32-arm64": "2.5.6", "@parcel/watcher-win32-ia32": "2.5.6", "@parcel/watcher-win32-x64": "2.5.6" } }, "sha512-tmmZ3lQxAe/k/+rNnXQRawJ4NjxO2hqiOLTHvWchtGZULp4RyFeh6aU4XdOYBFe2KE1oShQTv4AblOs2iOrNnQ=="],
 

@@ -18,6 +18,12 @@
 		"title": "مرحبًا بالعالم!"
 	},
 	"LocaleSwitcher": {
+		"groups": {
+			"eastAsian": "شرق آسيا",
+			"eastSlavic": "السلافية الشرقية",
+			"middleEastern": "الشرق الأوسط",
+			"westernEuropean": "أوروبا الغربية"
+		},
 		"label": "تغيير اللغة",
 		"locale": "{locale, select, en {الإنجليزية} ru {الروسية} be {البيلاروسية} uk {الأوكرانية} de {الألمانية} fr {الفرنسية} it {الإيطالية} es {الإسبانية} ar {العربية} zh {الصينية} ja {اليابانية} other {غير معروف}}"
 	},
